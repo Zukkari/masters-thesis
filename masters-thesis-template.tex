@@ -58,8 +58,8 @@
 
 % Change Babel document elements
 \addto\captionsestonian{%
-  \renewcommand{\refname}{Viidatud kirjandus}%
-  \renewcommand{\appendixname}{Lisad}%
+    \renewcommand{\refname}{Viidatud kirjandus}%
+    \renewcommand{\appendixname}{Lisad}%
 }
 
 
@@ -135,34 +135,34 @@
 % Proper way to create coloured code listings
 \usepackage{listings}
 \lstset{
-  %language=python,                % the language of the code
-  language=C++,
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
-  %numbers=left,                   % where to put the line-numbers
-  %numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
-  numberstyle=\tiny\color{gray},
-  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line
-                                   % will be numbered
-  numbersep=5pt,                   % how far the line-numbers are from the code
-  backgroundcolor=\color{white},   % choose the background color. You must add \usepackage{color}
-  showspaces=false,                % show spaces adding particular underscores
-  showstringspaces=false,          % underline spaces within strings
-  showtabs=false,                  % show tabs within strings adding particular underscores
-  frame = lines,
-  %frame=single,                   % adds a frame around the code
-  rulecolor=\color{black},		   % if not set, the frame-color may be changed on line-breaks within
-                                   % not-black text (e.g. commens (green here))
-  tabsize=2,                       % sets default tabsize to 2 spaces
-  captionpos=b,                    % sets the caption-position to bottom
-  breaklines=true,                 % sets automatic line breaking
-  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-  %title=\lstname,                 % show the filename of files included with \lstinputlisting;
-                                   % also try caption instead of title
-  keywordstyle=\color{blue},       % keyword style
-  commentstyle=\color{dkgreen},    % comment style
-  stringstyle=\color{mauve},       % string literal style
-  escapeinside={\%*}{*)},          % if you want to add a comment within your code
-  morekeywords={*,game, fun}       % if you want to add more keywords to the set
+%language=python,                % the language of the code
+    language=C++,
+    basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+    %numbers=left,                   % where to put the line-numbers
+    %numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,                    % the step between two line-numbers. If it's 1, each line
+    % will be numbered
+    numbersep=5pt,                   % how far the line-numbers are from the code
+    backgroundcolor=\color{white},   % choose the background color. You must add \usepackage{color}
+    showspaces=false,                % show spaces adding particular underscores
+    showstringspaces=false,          % underline spaces within strings
+    showtabs=false,                  % show tabs within strings adding particular underscores
+    frame = lines,
+    %frame=single,                   % adds a frame around the code
+    rulecolor=\color{black},           % if not set, the frame-color may be changed on line-breaks within
+    % not-black text (e.g. commens (green here))
+    tabsize=2,                       % sets default tabsize to 2 spaces
+    captionpos=b,                    % sets the caption-position to bottom
+    breaklines=true,                 % sets automatic line breaking
+    breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+    %title=\lstname,                 % show the filename of files included with \lstinputlisting;
+    % also try caption instead of title
+    keywordstyle=\color{blue},       % keyword style
+    commentstyle=\color{dkgreen},    % comment style
+    stringstyle=\color{mauve},       % string literal style
+    escapeinside={\%*}{*)},          % if you want to add a comment within your code
+    morekeywords={*,game, fun}       % if you want to add more keywords to the set
 }
 
 
@@ -194,62 +194,61 @@
 \newtheorem{theorem}{Theorem}
 
 
-
 %%% BEGIN DOCUMENT
 \begin{document}
 
 %===BEGIN TITLE PAGE
-\thispagestyle{empty}
-\begin{center}
+    \thispagestyle{empty}
+    \begin{center}
 
-\iflanguage{english}{%
-\large
-UNIVERSITY OF TARTU\\%[2mm]
-Institute of Computer Science\\
-Computer Science Curriculum\\%[2mm]
-}{%
-TARTU ÜLIKOOL\\
-Arvutiteaduse instituut\\
-Informaatika õppekava\\%[2mm]
-}%\iflanguage
+        \iflanguage{english}{%
+            \large
+            UNIVERSITY OF TARTU\\%[2mm]
+            Institute of Computer Science\\
+            Computer Science Curriculum\\%[2mm]
+        }{%
+            TARTU ÜLIKOOL\\
+            Arvutiteaduse instituut\\
+            Informaatika õppekava\\%[2mm]
+        }%\iflanguage
 
 %\vspace*{\stretch{5}}
-\vspace{25mm}
+        \vspace{25mm}
 
-\Large Stanislav Mõškovski
+        \Large Stanislav Mõškovski
 
-\vspace{4mm}
+        \vspace{4mm}
 
-\huge Building a tool for detecting code smells in Android application code
+        \huge Building a tool for detecting code smells in Android application code
 
 %\vspace*{\stretch{7}}
-\vspace{20mm}
+        \vspace{20mm}
 
-\iflanguage{english}{%
-\Large Master's Thesis (30 ECTS)
-}{%
-\Large Bakalaureusetöö (9 EAP)
-}%\iflanguage
+        \iflanguage{english}{%
+            \Large Master's Thesis (30 ECTS)
+        }{%
+            \Large Bakalaureusetöö (9 EAP)
+        }%\iflanguage
 
-\end{center}
+    \end{center}
 
-\vspace{2mm}
+    \vspace{2mm}
 
-\begin{flushright}
- {
- \setlength{\extrarowheight}{5pt}
- \begin{tabular}{r l}
-  \sffamily \iflanguage{english}{Supervisor}{Juhendaja}: & \sffamily Kristiina Rahkema, MSc \\
-  \sffamily \iflanguage{english}{Supervisor}{Juhendaja}: & \sffamily Dietmar Pfahl, PhD
- \end{tabular}
- }
-\end{flushright}
+    \begin{flushright}
+    {
+        \setlength{\extrarowheight}{5pt}
+        \begin{tabular}{r l}
+            \sffamily \iflanguage{english}{Supervisor}{Juhendaja}: & \sffamily Kristiina Rahkema, MSc \\
+            \sffamily \iflanguage{english}{Supervisor}{Juhendaja}: & \sffamily Dietmar Pfahl, PhD
+        \end{tabular}
+    }
+    \end{flushright}
 
 %\vspace*{\stretch{3}}
 %\vspace{10mm}
 
-\vfill
-\centerline{Tartu 2020}
+    \vfill
+    \centerline{Tartu 2020}
 
 %===END TITLE PAGE
 
@@ -263,378 +262,341 @@ Informaatika õppekava\\%[2mm]
 
 
 %===COMPULSORY INFO PAGE
-\newpage
+    \newpage
 
 %=== Info in English
-\newcommand\EngInfo{{%
-\selectlanguage{english}
-\noindent\textbf{\large Building a tool for detecting code smells in Android application code}
+    \newcommand\EngInfo{{%
+        \selectlanguage{english}
+        \noindent\textbf{\large Building a tool for detecting code smells in Android application code}
 
-\vspace*{3ex}
+        \vspace*{3ex}
 
-\noindent\textbf{Abstract:}
+        \noindent\textbf{Abstract:}
 
-\noindent
-\TODO{
-Write abstract text here
-}
+        \noindent
+        \TODO{
+            Write abstract text here
+        }
 
-\vspace*{1ex}
+        \vspace*{1ex}
 
-\noindent\textbf{Keywords:}\\
-\TODO{List of keywords}
+        \noindent\textbf{Keywords:}\\
+        \TODO{List of keywords}
 %Layout, formatting, template
 
-\vspace*{1ex}
+        \vspace*{1ex}
 
-\noindent\textbf{CERCS:}\TODO{CERCS code and name:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+        \noindent\textbf{CERCS:}\TODO{CERCS code and name:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
 
-\vspace*{1ex}
-}}%\newcommand\EngInfo
+        \vspace*{1ex}
+    }}%\newcommand\EngInfo
 
 
 %=== Info in Estonian
-\newcommand\EstInfo{{%
-\selectlanguage{estonian}
-\noindent\textbf{\large Building a tool for detecting code smells in Android application code}
-\vspace*{1ex}
+    \newcommand\EstInfo{{%
+        \selectlanguage{estonian}
+        \noindent\textbf{\large Building a tool for detecting code smells in Android application code}
+        \vspace*{1ex}
 
-\noindent\textbf{Lühikokkuvõte:}
+        \noindent\textbf{Lühikokkuvõte:}
 
 %\noindent ...
 
-\TODO{One or two sentences providing a basic introduction to the field, comprehensible to a scientist in
-any discipline.}
-\TODO{Two to three sentences of
-more detailed background, comprehensible to scientists in related disciplines.}
-\TODO{One sentence clearly stating the general problem being addressed by this particular
-study.}
-\TODO{One sentence summarising the main result (with the words ``here we show´´ or their equivalent).}
-\TODO{Two or three sentences explaining what
-the main result reveals in direct
-comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.}
-\TODO{One or two sentences to put the results into a more general context.}
-\TODO{Two or three sentences to provide a
-broader perspective, readily
-comprehensible to a scientist in any
-discipline, may be included in the first paragraph
-if the editor considers that the accessibility of
-the paper is significantly enhanced by their inclusion.}
+        \TODO{One or two sentences providing a basic introduction to the field, comprehensible to a scientist in
+        any discipline.}
+        \TODO{Two to three sentences of
+        more detailed background, comprehensible to scientists in related disciplines.}
+        \TODO{One sentence clearly stating the general problem being addressed by this particular
+        study.}
+        \TODO{One sentence summarising the main result (with the words ``here we show´´ or their equivalent).}
+        \TODO{Two or three sentences explaining what
+        the main result reveals in direct
+        comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.}
+        \TODO{One or two sentences to put the results into a more general context.}
+        \TODO{Two or three sentences to provide a
+        broader perspective, readily
+        comprehensible to a scientist in any
+        discipline, may be included in the first paragraph
+        if the editor considers that the accessibility of
+        the paper is significantly enhanced by their inclusion.}
 
-\vspace*{1ex}
+        \vspace*{1ex}
 
-\noindent\textbf{Võtmesõnad:}\\
-\TODO{List of keywords}
+        \noindent\textbf{Võtmesõnad:}\\
+        \TODO{List of keywords}
 %Layout, formatting, template
 
-\vspace*{1ex}
+        \vspace*{1ex}
 
-\noindent\textbf{CERCS:}\TODO{CERCS kood ja nimetus:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+        \noindent\textbf{CERCS:}\TODO{CERCS kood ja nimetus:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
 
-\vspace*{1ex}
-}}%\newcommand\EstInfo
+        \vspace*{1ex}
+    }}%\newcommand\EstInfo
 
 
 %=== Determine the order of languages on Info page
-\iflanguage{english}{\EngInfo}{\EstInfo}
-\iflanguage{estonian}{\EngInfo}{\EstInfo}
+    \iflanguage{english}{\EngInfo}{\EstInfo}
+    \iflanguage{estonian}{\EngInfo}{\EstInfo}
 
 
-\newpage
-\tableofcontents
+    \newpage
+    \tableofcontents
 
-\newpage
-\section{Introduction}\label{sec:introduction}
+    \newpage
 
-\subsection{Research context}\label{subsec:research-context}
+    \section{Introduction}\label{sec:introduction}
 
-\TODO{
-Describe what code smells are.
-Describe how code smells are different from bugs.
-Shortly about previous research and how we plan to be different.
-}
+    \subsection{Research context}\label{subsec:research-context}
 
-\subsection{Research motivation}\label{subsec:research-motivation}
+    \TODO{
+        Describe what code smells are.
+        Describe how code smells are different from bugs.
+        Shortly about previous research and how we plan to be different.
+    }
 
-\TODO{
-Describe why solution proposed in this thesis is useful.
-Goals of the thesis:
-\begin{itemize}
-    \item Develop a tool, describe why it would be useful from different perspectives (developers, project managers, data scientists)
-    \item Extend the body of knowledge about the occurrence of code smells in Android applications (extend the number of code smells,
-    provide analysis results, compare the results with with already published results, additional results for code smells not
-    yet published in the literature)
-\end{itemize}
-}
+    \subsection{Research motivation}\label{subsec:research-motivation}
 
-\subsection{Thesis outline}\label{subsec:thesis-outline}
+    \TODO{
+        Describe why solution proposed in this thesis is useful.
+        Goals of the thesis:
+        \begin{itemize}
+            \item Develop a tool, describe why it would be useful from different perspectives (developers, project managers, data scientists)
+            \item Extend the body of knowledge about the occurrence of code smells in Android applications (extend the number of code smells,
+            provide analysis results, compare the results with with already published results, additional results for code smells not
+            yet published in the literature)
+        \end{itemize}
+    }
 
-\TODO{
-Shortly describe structure of the thesis.
-What does each chapter tell the reader?
-}
+    \subsection{Thesis outline}\label{subsec:thesis-outline}
 
-\newpage
-\section{Background}\label{sec:background}
+    \TODO{
+        Shortly describe structure of the thesis.
+        What does each chapter tell the reader?
+    }
 
-\subsection{Code smells}\label{subsec:code-smells}
-\TODO{
-Describe code smells in general, what are they, how were they found at first.
-Describe how to fix code smells.
-Describe why would you want to fix them.
-}
+    \newpage
 
-\subsection{Definitions of investigated code smells}\label{subsec:definitions-of-investigated-code-smells}
+    \section{Background}\label{sec:background}
 
-\TODO{
-Here we need to describe definitions of code smells that we investigated.
-Problem: code smells were defined by Kristiina, but no paper has been published yet?
-}
+    \subsection{Code smells}\label{subsec:code-smells}
+    \TODO{
+        Describe code smells in general, what are they, how were they found at first.
+        Describe how to fix code smells.
+        Describe why would you want to fix them.
 
-\subsection{Related work}\label{subsec:related-work}
+        Add all of the implemented code smells into appendix, here we should bring some examples
+        about the code smells.
 
-\TODO{
-Describe existing tools.
-Discuss their results and implementations.
-Here we can describe the same 3 tools that were used during the seminar:
-paprika, infusion and anti patterns code smells plugin for SonarQube.
-}
+        Bring some examples from the Fowler's list and then also describe
+        those that we have implemented.
+    }
 
-\subsection{SonarQube}\label{subsec:sonarqube}
+    \subsection{Related work}\label{subsec:related-work}
 
-\TODO{
-Describe what is SonarQube.
-Describe why was SonarQube chosen as implementation platform.
-Describe how can SonarQube be exnteded.
-Describe what does it mean to write a plugin for SonarQube: extension points (sensor/rule), what are the possibilities for the user
-(enabling/disabling rules), possibility to run both server side and inside an IDE (SonarLint).
-}
+    \TODO{
+        Describe existing tools.
+        Discuss their results and implementations.
+        Here we can describe the same 3 tools that were used during the seminar:
+        paprika, infusion and anti patterns code smells plugin for SonarQube.
+    }
 
-\newpage
-\section{Method}\label{sec:method}
+    \subsection{SonarQube}\label{subsec:sonarqube}
 
-\subsection{Analysis tools}\label{subsec:analysis-tools}
+    \TODO{
+        Describe what is SonarQube.
+        Describe why was SonarQube chosen as implementation platform.
+        Describe how can SonarQube be exnteded.
+        Describe what does it mean to write a plugin for SonarQube: extension points (sensor/rule), what are the possibilities for the user
+        (enabling/disabling rules), possibility to run both server side and inside an IDE (SonarLint).
+    }
 
-\TODO{
-Describe tools to be used in analysis.
-}
+    \newpage
 
-\subsubsection{SonarQube plugin}
 
-\TODO{
-Describe plugin for SonarQube (what does it do, how does it work, what can be configured, show end user can
-user the plugin, architecture of the plugin).
-What do consider: how can the user select what rules to enable, context of a single rule (severity etc)
-}
+    \section{Method}\label{sec:method}
 
-\subsubsection{SonarQube project bulk analyzer}
+    \input{method.tex}
 
-\TODO{
-Describe the tool that was developed for bulk project analysis.
-Describe its functionality:
-\begin{itemize}
-    \item Parse the input corpus file
-    \item Clone the git projects
-    \item Build the projects (using gradle/maven), here we can also mention that we use wrapper if it is provided with the
-    project and if the wrapper is not provided we use default version installed on the system.
-    \item In case of Gradle, we have to modify the build script to include the SonarQube analysis plugin.
-    \item Create projects in the SonarQube server (with configured profile)
-    \item Run the analysis on the projects (data is uploaded by the SonarQube plugin itself)
-    \item To implement: fetching results from the SonarQube once all of the projects are analyzed.
-\end{itemize}
-}
+    \subsection{Selected datasets}\label{subsec:selected-datasets}
 
-\subsection{Selected datasets}\label{subsec:selected-datasets}
+    \TODO{
+        Describe how we selected the dataset.
+        We might be using the dataset that was used by the authors of another paper, so that we
+        can compare our results to those that they have already provided.
+        Also mention here that some of the projects in our corpus were not using the build system,
+        so we were not able to analyze them.
+        Here we can say that we excluded them because we could build them, but SonarQube itself
+        cannot analyze projects that do not use build systems.
+    }
 
-\TODO{
-Describe how we selected the dataset.
-We might be using the dataset that was used by the authors of another paper, so that we
-can compare our results to those that they have already provided.
-Also mention here that some of the projects in our corpus were not using the build system,
-so we were not able to analyze them.
-Here we can say that we excluded them because we could build them, but SonarQube itself
-cannot analyze projects that do not use build systems.
-}
+    \subsection{Methodology}\label{subsec:Methodology}
 
-\subsection{Methodology}\label{subsec:Methodology}
+    \TODO{
+        Describe that we want to perform analysis of projects in order to:
+        \begin{itemize}
+            \item see how code smells that we implemented are distributed inside analyzed applications
+            \item see how our code smells definitions compare to already published results
+            \item see how code smells not yet published by the literature are distributed inside analyzed applications
+        \end{itemize}
 
-\TODO{
-Describe that we want to perform analysis of projects in order to:
-\begin{itemize}
-    \item see how code smells that we implemented are distributed inside analyzed applications
-    \item see how our code smells definitions compare to already published results
-    \item see how code smells not yet published by the literature are distributed inside analyzed applications
-\end{itemize}
+        Here we also need to describe the method that we will use to analyze the applications.
+        For example for a each application:
+        \begin{enumerate}
+            \item Build the project
+            \item Analyze the project
+            \item Extract what code smells were found / how many were found (statistics)
+        \end{enumerate}
 
-Here we also need to describe the method that we will use to analyze the applications.
-For example for a each application:
-\begin{enumerate}
-    \item Build the project
-    \item Analyze the project
-    \item Extract what code smells were found / how many were found (statistics)
-\end{enumerate}
+        Also for some code smells we need to determine some parameters statistically (using box plot technique).
+        This section would need to describe how we would fint hose parameters statistically.
+    }
 
-Also for some code smells we need to determine some parameters statistically (using box plot technique).
-This section would need to describe how we would fint hose parameters statistically.
-}
+    \newpage
 
-\newpage
-\section{Results}\label{sec:results}
 
-\subsection{Developed tools}\label{subsec:developed-tools}
+    \section{Results}\label{sec:results}
 
-\TODO{
-Here describe plugin for SonarQube.
-In introduction we mentioned groups that we think the tool might be used for.
-So here we provide our ideas how each group can be helped with our tool,
-provide screenshots or other artifacts that might help our points.
+    \subsection{Developed tools}\label{subsec:developed-tools}
 
-Also describe the results of developing the bulk analyzer, provide simple
-instructions on how to run this tool, provide output from help command, which
-will show input parameters and basic instruction on how to run.
-}
+    \TODO{
+        Here describe plugin for SonarQube.
+        In introduction we mentioned groups that we think the tool might be used for.
+        So here we provide our ideas how each group can be helped with our tool,
+        provide screenshots or other artifacts that might help our points.
 
-\subsection{Analysis results}\label{subsec:analysis-results}
+        Also describe the results of developing the bulk analyzer, provide simple
+        instructions on how to run this tool, provide output from help command, which
+        will show input parameters and basic instruction on how to run.
+    }
 
-\TODO{
-Describe the results that we got from project analysis.
-Say how those compare to already existing results.
-Distribution of code smells that are not yet published.
-How many projects in corpus versus how many were actually successfully analyzed.
-Statistics on code smell distributions inside analyzed applications.
-}
+    \subsection{Analysis results}\label{subsec:analysis-results}
 
-\newpage
-\section{Conclusion}\label{sec:conclusion}
+    \TODO{
+        Describe the results that we got from project analysis.
+        Say how those compare to already existing results.
+        Distribution of code smells that are not yet published.
+        How many projects in corpus versus how many were actually successfully analyzed.
+        Statistics on code smell distributions inside analyzed applications.
+    }
 
-\TODO{
-Say that we have created a tool and it works on the projects that we checked,
-but we dont know if it actually helps, since we did not perform any empirical study.
-Say that there might be some limitations with the dataset that we have selected.
-Discuss future work.
-}
+    \newpage
+
+
+    \section{Conclusion}\label{sec:conclusion}
+
+    \TODO{
+        Say that we have created a tool and it works on the projects that we checked,
+        but we dont know if it actually helps, since we did not perform any empirical study.
+        Say that there might be some limitations with the dataset that we have selected.
+        Discuss future work.
+    }
 
 % BibTeX bibliography
-\bibliographystyle{alpha} %plain=[1], alpha=[BGZ09]
-\bibliography{masters-thesis}
+    \bibliographystyle{alpha} %plain=[1], alpha=[BGZ09]
+    \bibliography{masters-thesis}
 
-\addcontentsline{toc}{section}{\refname}
+    \addcontentsline{toc}{section}{\refname}
 
 
 % Use Biblatex if you have problems with Estonian keywords
 %\printbibliography %biblatex
 
 
-% Use alternative local LaTeX bibliography
-\begin{comment}
-\begin{thebibliography}{9}
-\bibitem{proVerif}
-  Bruno Blanchet.
-  Proverif: Cryptographic protocol verifier in the formal model.
-  \url{http://www.proverif.ens.fr/}.
-  (checked 15.05.2012)
-\bibitem{GameB_1} GameB1
-\bibitem{GameB_2} GameB2
-\bibitem{certicrypt} certicrypt
-\bibitem{kamm12} kamm12
-\end{thebibliography}
-\end{comment}
 
-
-\newpage
+    \newpage
 %\appendix
 %\section*{\appendixname}
-\iflanguage{english}%
-  {\section*{Appendix}
-  \addcontentsline{toc}{section}{Appendix}
-  }%
-  {\section*{Lisad}
-  \addcontentsline{toc}{section}{Lisad}}
+    \iflanguage{english}%
+    {\section*{Appendix}
+        \addcontentsline{toc}{section}{Appendix}
+    }%
+    {\section*{Lisad}
+        \addcontentsline{toc}{section}{Lisad}}
 
 
-\section*{I. Glossary}
-\addcontentsline{toc}{subsection}{I. Glossary}
+    \section*{I. Glossary}
+    \addcontentsline{toc}{subsection}{I. Glossary}
 
-\newpage
+    \newpage
 
 %=== Licence in English
-\newcommand{\licencehint}[2]{\\\hspace*{#1}\textsl(#2)\par}
-\newcommand\EngLicence{{%
-\selectlanguage{english}
-\section*{II. Licence}
+    \newcommand{\licencehint}[2]{\\\hspace*{#1}\textsl(#2)\par}
+    \newcommand\EngLicence{{%
+        \selectlanguage{english}
+        \section*{II. Licence}
 
-\addcontentsline{toc}{subsection}{II. Licence}
+        \addcontentsline{toc}{subsection}{II. Licence}
 
-\subsection*{Non-exclusive licence to reproduce thesis and make thesis public}
+        \subsection*{Non-exclusive licence to reproduce thesis and make thesis public}
 
-I, \textbf{Stanislav Mõškovski}, %author's name
-  \licencehint{10mm}{author's name}
+        I, \textbf{Stanislav Mõškovski}, %author's name
+        \licencehint{10mm}{author's name}
 
-\begin{enumerate}
-\item
-herewith grant the University of Tartu a free permit (non-exclusive licence) to
-\par
-reproduce, for the purpose of preservation, including for adding to the DSpace digital archives until the expiry of the term of copyright,
-\par
-\textbf{Building a tool for detecting code smells in Android application code}, %
-  \licencehint{10mm}{title of thesis}
-\par
-supervised by Kristiina Rahkema and Dietmar Pfahl. %supervisor's name
-  \licencehint{10mm}{supervisor's name}
-\item
-I grant the University of Tartu a permit to make the work specified in p. 1 available to the public via the web environment of the University of Tartu, including via the DSpace digital archives, under the Creative Commons licence CC BY NC ND 3.0, which allows, by giving appropriate credit to the author, to reproduce, distribute the work and communicate it to the public, and prohibits the creation of derivative works and any commercial use of the work until the expiry of the term of copyright.
-\item
-I am aware of the fact that the author retains the rights specified in p. 1 and 2.
-\item
-I certify that granting the non-exclusive licence does not infringe other persons' intellectual property rights or rights arising from the personal data protection legislation.
-\end{enumerate}
+        \begin{enumerate}
+            \item
+            herewith grant the University of Tartu a free permit (non-exclusive licence) to
+            \par
+            reproduce, for the purpose of preservation, including for adding to the DSpace digital archives until the expiry of the term of copyright,
+            \par
+            \textbf{Building a tool for detecting code smells in Android application code}, %
+            \licencehint{10mm}{title of thesis}
+            \par
+            supervised by Kristiina Rahkema and Dietmar Pfahl. %supervisor's name
+            \licencehint{10mm}{supervisor's name}
+            \item
+            I grant the University of Tartu a permit to make the work specified in p. 1 available to the public via the web environment of the University of Tartu, including via the DSpace digital archives, under the Creative Commons licence CC BY NC ND 3.0, which allows, by giving appropriate credit to the author, to reproduce, distribute the work and communicate it to the public, and prohibits the creation of derivative works and any commercial use of the work until the expiry of the term of copyright.
+            \item
+            I am aware of the fact that the author retains the rights specified in p. 1 and 2.
+            \item
+            I certify that granting the non-exclusive licence does not infringe other persons' intellectual property rights or rights arising from the personal data protection legislation.
+        \end{enumerate}
 
-\noindent
-Stanislav Mõškovski\\ %author's name
-\textbf{\textsl{dd/mm/yyyy}}
-}}%\newcommand\EngLicence
+        \noindent
+        Stanislav Mõškovski\\ %author's name
+        \textbf{\textsl{dd/mm/yyyy}}
+    }}%\newcommand\EngLicence
 
 
 %=== Licence in Estonian
-\newcommand\EstLicence{{%
-\selectlanguage{estonian}
-\section*{II. Litsents}
+    \newcommand\EstLicence{{%
+        \selectlanguage{estonian}
+        \section*{II. Litsents}
 
-\addcontentsline{toc}{subsection}{II. Litsents}
+        \addcontentsline{toc}{subsection}{II. Litsents}
 
-\subsection*{Lihtlitsents lõputöö reprodutseerimiseks ja üldsusele kättesaadavaks tegemiseks}
+        \subsection*{Lihtlitsents lõputöö reprodutseerimiseks ja üldsusele kättesaadavaks tegemiseks}
 
-Mina, \textbf{Alice Cooper}, %author's name
-  \licencehint{10mm}{autori nimi}
+        Mina, \textbf{Alice Cooper}, %author's name
+        \licencehint{10mm}{autori nimi}
 
-\begin{enumerate}
-\item
-annan Tartu Ülikoolile tasuta loa (lihtlitsentsi) minu loodud teose
-\par
-\textbf{Tüübituletus neljandat järku loogikavalemitele}, %title of thesis
-    \licencehint{10mm}{lõputöö pealkiri}
-\par
-mille juhendaja(d) on Axel Rose ja May Flower, %supervisor's name(s)
-  \licencehint{10mm}{juhendaja nimi}
-\par
-reprodutseerimiseks eesmärgiga seda säilitada, sealhulgas lisada digitaalarhiivi DSpace kuni autoriõiguse kehtivuse lõppemiseni.
-\par
-\item
-Annan Tartu Ülikoolile loa teha punktis 1 nimetatud teos üldsusele kättesaadavaks Tartu Ülikooli veebikeskkonna, sealhulgas digitaalarhiivi DSpace kaudu Creative Commonsi litsentsiga CC BY NC ND 3.0, mis lubab autorile viidates teost reprodutseerida, levitada ja üldsusele suunata ning keelab luua tuletatud teost ja kasutada teost ärieesmärgil, kuni autoriõiguse kehtivuse lõppemiseni.
-\item
-Olen teadlik, et punktides 1 ja 2 nimetatud õigused jäävad alles ka autorile.
-\item
-Kinnitan, et lihtlitsentsi andmisega ei riku ma teiste isikute intellektuaalomandi ega isikuandmete kaitse õigusaktidest tulenevaid õigusi.
-\end{enumerate}
+        \begin{enumerate}
+            \item
+            annan Tartu Ülikoolile tasuta loa (lihtlitsentsi) minu loodud teose
+            \par
+            \textbf{Tüübituletus neljandat järku loogikavalemitele}, %title of thesis
+            \licencehint{10mm}{lõputöö pealkiri}
+            \par
+            mille juhendaja(d) on Axel Rose ja May Flower, %supervisor's name(s)
+            \licencehint{10mm}{juhendaja nimi}
+            \par
+            reprodutseerimiseks eesmärgiga seda säilitada, sealhulgas lisada digitaalarhiivi DSpace kuni autoriõiguse kehtivuse lõppemiseni.
+            \par
+            \item
+            Annan Tartu Ülikoolile loa teha punktis 1 nimetatud teos üldsusele kättesaadavaks Tartu Ülikooli veebikeskkonna, sealhulgas digitaalarhiivi DSpace kaudu Creative Commonsi litsentsiga CC BY NC ND 3.0, mis lubab autorile viidates teost reprodutseerida, levitada ja üldsusele suunata ning keelab luua tuletatud teost ja kasutada teost ärieesmärgil, kuni autoriõiguse kehtivuse lõppemiseni.
+            \item
+            Olen teadlik, et punktides 1 ja 2 nimetatud õigused jäävad alles ka autorile.
+            \item
+            Kinnitan, et lihtlitsentsi andmisega ei riku ma teiste isikute intellektuaalomandi ega isikuandmete kaitse õigusaktidest tulenevaid õigusi.
+        \end{enumerate}
 
-\noindent
-Alice Cooper\\ %author's name
-\textbf{\textsl{pp.kk.aaaa}}
-}}%\newcommand\EstLicence
+        \noindent
+        Alice Cooper\\ %author's name
+        \textbf{\textsl{pp.kk.aaaa}}
+    }}%\newcommand\EstLicence
 
 
 %===Choose the licence in active language
-\iflanguage{english}{\EngLicence}{\EstLicence}
+    \iflanguage{english}{\EngLicence}{\EstLicence}
 
 
 \end{document}
