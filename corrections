@@ -1,0 +1,43 @@
+1. Merge 2.1 and 2.2 (headline code smells)
+   Put all of the code smells into appendix, but bring some examples in the chapter.
+   Start out with Fowler, and then describe those that I implemented.
+
+2. We can now say that we have not implemented the code smells, but just refer to the paper published by Kristiina
+
+3. Method chapter
+	- describe the tool 
+		What? How? What is the goal? What tools did I use? Describe how do we test it, we have a test case for every code smells.
+	- how dataset is selected
+		We want to see how the existing distribution of code smells is compared to others
+		We want to see distribution of new code smells
+		Selection of datasets? How did we find them? Why those?
+
+		Internal validity - how good the tool is
+		External validity - how valid are the datasets
+
+4. Results
+	Describe how quries are transformed into sonarqube implementation
+	Describe how we tested the tool. We have X test cases and code coverage was Y percent etc.
+
+	Analysis -
+		Show distribution of comparison to others
+		Show distribution of new ones
+	
+5. Discussion
+	Reflection on the results
+	
+	The tool might produce incorrect results but the only way to check this is to manually chceck.
+	
+	Report results:
+		For this corpus, it took x time to run it, found y code smells and the specs of the pc where z.
+		Compilation time is very long, since we have to compile the sources.
+		How useful it is? How results are correct and how did I check it?
+		Also describe how many tests
+		What kind of limitations that we have?
+
+
+	For the analysis:
+		Compare with others.
+		Maybe say that we did statistical analysis of distribution, how to compare if distributions are significantly different. 
+		(but here you must say this in method first, that you will apply this)
+		
