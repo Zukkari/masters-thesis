@@ -52,7 +52,7 @@ a plugin for either of those tools and it would be usable in both of them.
 During the runtime of SonarQube, plugins can be installed dynamically, either from the marketplace or they would
 be also loaded from the \url{/opt/sonarqube/extensions/plugins/} directory as stated in the documentation.
 This means that plugins will be loaded dynamically during the execution of the analysis and since the documentation
-states the the Sonar Java plugin must be included with \verb{provided} scope during compilation (which means that it
+states the the Sonar Java plugin must be included with \verb|provided| scope during compilation (which means that it
 will not be included in the final compiled artifact of the plugin), it means that not all of the classes might be
 available at the runtime that were available during compilation.
 
@@ -114,7 +114,7 @@ base when writing plugins for the Java language and as mentioned previously, it 
 an API to use Java AST\@.
 
 Previously we also mentioned that plugins are loaded into the SonarQube dynamically and that
-this plugin must be used with \verb{provided} scope when compiling the plugin.
+this plugin must be used with \verb|provided| scope when compiling the plugin.
 This means that only some of the packages are provided during the runtime and not all of the classes
 provided by the Sonar Java plugin can be used during the runtime.
 This is an issue, because the plugin itself provides a lot of utilities that could be reused inside
@@ -136,5 +136,40 @@ the compiled artifact of our plugin, so that we could use those tools during the
     Then, the code snippet would contain comment in pattern (provide pattern here and also an example).
 }
 
-Once the plugin has been implemented, we need to also test it to verify that the code smells it
-detects are matching our our expectations and the plugin itself operates as expected.
+Once the plugin has been implemented, we need to also test it to test the operation of the plugin.
+Testing of the plugin can be split into two phases: testing of plugin internal architecture, such as
+rule loading, registration, rule metadata loading and testing of rule definitions and verifying that
+the rule detects code smells if provided with a valid code snippet.
+
+In order to satisfy the first phase of the testing, we used Scalatest~\cite{scalatest} to write basic tests and to verify
+that plugins internal components operate correctly.
+We chose Scalatest, because it is a standard unit testing framework for Scala projects and it allows developers
+to write unit tests in form of specification.
+
+For the second phase, SonarQube provides a testing framework that allows to test the rules in a similar fashion that
+they would have been used in production.
+In this framework, testing is performed as follows: firstly, you need to specify a rule which you would like to test by
+creating an instance of the rule and passing it to the framework, and secondly, you need to provide a code snippet that
+contains a code smell that you would like to verify with the rule.
+
+We can see an example of such test file in figure~\ref{data_class_example}.
+This code snippet contains code that a person writing test would consider a code smell for a particular rule
+and as seen on line 3, we can specify which line the plugin should report by placing a comment on that line in form of line comment:
+\verb|// Noncompliant {{Optional message}}|.
+Then the framework will verify if the plugin reports an issue in the provided code snippet and whether the plugin reported
+the same line as marked in the source file and if the message was the same as provided in the source file.
+This approach allows us to verify the code smells without the need to run the analysis separately on the server and
+detect most of the issues with the definitions during testing phase.
+
+\begin{figure} [htb]
+    \begin{lstlisting}
+package com.example.test;
+
+public class DataClass { // Noncompliant {{Refactor this class so it includes more than just data}}
+        public String field1;
+        public int field2;
+    }
+    \end{lstlisting}
+    \caption{Example of a data class code smell test file.}
+    \label{data_class_example}
+\end{figure}
