@@ -172,6 +172,7 @@
 % ftp://tug.ctan.org/tex-archive/macros/latex/contrib/semantic/semantic.pdf
 \usepackage{proof}
 \usepackage{semantic}
+\usepackage{natbib}
 \setlength{\inferLineSkip}{4pt}
 \def\predicatebegin #1\predicateend{$\Gamma \vdash #1$}
 
@@ -419,40 +420,9 @@
 
     \subsection{Selected datasets}\label{subsec:selected-datasets}
 
-    \TODO{
-        Describe how we selected the dataset.
-        We might be using the dataset that was used by the authors of another paper, so that we
-        can compare our results to those that they have already provided.
-        Also mention here that some of the projects in our corpus were not using the build system,
-        so we were not able to analyze them.
-        Here we can say that we excluded them because we could build them, but SonarQube itself
-        cannot analyze projects that do not use build systems.
-    }
-
-    \subsection{Methodology}\label{subsec:Methodology}
-
-    \TODO{
-        Describe that we want to perform analysis of projects in order to:
-        \begin{itemize}
-            \item see how code smells that we implemented are distributed inside analyzed applications
-            \item see how our code smells definitions compare to already published results
-            \item see how code smells not yet published by the literature are distributed inside analyzed applications
-        \end{itemize}
-
-        Here we also need to describe the method that we will use to analyze the applications.
-        For example for a each application:
-        \begin{enumerate}
-            \item Build the project
-            \item Analyze the project
-            \item Extract what code smells were found / how many were found (statistics)
-        \end{enumerate}
-
-        Also for some code smells we need to determine some parameters statistically (using box plot technique).
-        This section would need to describe how we would fint hose parameters statistically.
-    }
+    \input{datasets.tex}
 
     \newpage
-
 
     \section{Results}\label{sec:results}
 

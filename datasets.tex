@@ -1,0 +1,33 @@
+\TODO{
+    Describe how we selected the dataset.
+    We might be using the dataset that was used by the authors of another paper, so that we
+    can compare our results to those that they have already provided.
+    Also mention here that some of the projects in our corpus were not using the build system,
+    so we were not able to analyze them.
+    Here we can say that we excluded them because we could build them, but SonarQube itself
+    cannot analyze projects that do not use build systems.
+}
+
+To evaluate the plugin and see how it performs, we needed to perform an analysis of existing applications.
+The analysis itself has two main objectives.
+Firstly, we wanted to see how existing (previously implemented by the literature) code smells were distributed
+inside analyzed applications.
+Secondly, we wanted to see how new code smells (previously not implemented by the literature) are distributed
+inside analyzed applications.
+
+
+For this purpose, we used a corpus consisting of 1509 applications that were published in~\cite{kotlin_android_corpus} by
+\citeauthor{kotlin_android_corpus}.
+This corpus consists of Java and Kotlin applications for the Android platform.
+In our analysis, we analyzed applications developed in Java and ignored ones implemented in Kotlin.
+
+
+As a result, we were able to analyze {\ldots} applications.
+This number is vastly different from the total amount of applications that are present in the corpus for multiple reasons.
+Firstly, some of the projects were not using a build system (Gradle or Maven).
+This is an issue because to compile the project we would need to specify the classpath manually and
+this is quite difficult to do programmatically.
+Moreover, even if we managed to compile the projects, SonarQube is provided as a plugin for the build systems which means
+that we would still not be able to run the analysis.
+Secondly, some of the projects required extra configuration before building, which is also not possible to do
+programmatically because each project is different and requires manual configuration.
