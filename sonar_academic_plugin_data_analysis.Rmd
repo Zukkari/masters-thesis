@@ -1,0 +1,100 @@
+---
+title: "data_analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Libraries
+
+```{r}
+# install.packages("dplyr", "ggplot2")
+# install.packages("tidyverse")
+#install.packages("data.table")
+#install.packages("scales")
+```
+
+```{r}
+library(readr)
+library("dplyr")
+library("tidyverse")
+library(data.table)
+library(scales)
+```
+
+```{r}
+dataset <- read_csv("combined_data.csv")
+
+```
+```{r}
+View(dataset)
+```
+
+Drop classes, methods, variables and interfaces columns since we dont need them currently.
+
+```{r}
+dataset$Classes <- NULL
+dataset$Variables <- NULL
+dataset$Methods <- NULL
+dataset$Interfaces <- NULL
+dataset$project <- NULL
+```
+
+```{r}
+View(dataset)
+```
+
+Transform columns for the first graph (1 if code smell exists in project, else 0)
+
+```{r}
+cols <- names(dataset)
+
+for (col in cols) {
+  data <- dataset[[col]]
+  dataset[[col]] <- ifelse(data > 0, 1, 0)
+}
+```
+
+Collect number of total code smells:
+
+```{r}
+df <- read_csv("combined_data.csv")
+total <- colSums(df[, -which(names(df) %in% c("project", "Classes", "Methods", "Variables", "Interfaces"))], na.rm = TRUE)
+as_total_num <- sum(as.numeric(total))
+```
+
+
+# How many applications contain code smell X?
+
+```{r}
+plot_df <- data.frame(as.list(colSums(dataset, na.rm = TRUE)))
+plot_df_transpose <- transpose(plot_df)
+
+df <- plot_df_transpose %>% mutate(names = colnames(plot_df))
+df$names <- as.factor(df$names)
+```
+
+```{r}
+ggplot(df, aes(x = names, y = (V1/nrow(dataset)))) + 
+          geom_bar(stat = "identity") + 
+          scale_y_continuous(labels=scales::percent) +
+          ylab("How many applications contain code smell X?") +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+
+# Distribution of code smells inside analyzed applications
+
+```{r}
+distribution <- data.frame(as.list(total)) %>% transpose %>% mutate(rule = colnames(plot_df))
+```
+
+```{r}
+ggplot(distribution, aes(x = rule, y = (V1/as_total_num))) + 
+          geom_bar(stat = "identity") + 
+          scale_y_continuous(labels=scales::percent) +
+          ylab("Distribution of code smells inside of analyzed applications") +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
