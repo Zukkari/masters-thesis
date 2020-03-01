@@ -18,11 +18,64 @@
 Describe how queries from Kristiina's paper were transformed into SonarQube implementation.
 }
 
+As the code smells described by~\citeauthor{refactoring-fowler} are quite abstract, we needed
+a more concrete definitions in order to implement the code smells.
+In this paper, code smells are defined as GraphQL queries.
+However, SonarQube uses different pattern for code smell detection.
+
+In SonarQube, code smells are detected by applying visitor pattern~\cite{visitor_pattern} on the parsed
+AST of Java source code.
+So in order to translate GraphQL queries into the definitions that are applicable to SonarQube, we used the following
+algorithm that can be seen in~\ref{translation_algorithm}.
+
+Firstly, we needed to determine to context of the rule, such as if the rule should detect methods, classes or variables.
+Then, we needed to decide if the rule required could be detected in a single scan of the context.
+For example, if we need to decide whether or not the method has $X$ amount of parameters, we need would need to visit
+this single method only a single time and we do not need to know anything about other methods.
+But in some cases, we need to account for other nodes in the tree.
+For example, in \verbatim|Shotgun Surgery| we need to detect method invocations that can be present in other classes.
+
+\begin{algorithm}
+    \label{translation_algorithm}
+    \caption{Translation GraphQL queries into SonarQube rules}
+    \KwIn{GraphQL query}
+    \KwResult{GraphQL query translated into SonarQube implementation}
+    \SetKwFunction{DetermineContext}{DetermineContext}
+    \SetKwFunction{SensorRule}{SensorRule}
+    \SetKwFunction{RegularRule}{RegularRule}
+    \SetKwData{Context}{context}
+    \SetKwData{q}{q}
+    \SetKwData{r}{r}
+    \BlankLine
+
+    \lForEach{GraphQL query \q}{
+        \Context$\leftarrow$ \DetermineContext{$q$}
+        \uIf{rule \r requires context of other rules}{
+            \SensorRule{\Context, \r}
+        }
+        \Else{
+            \RegularRule{\Context, \r}
+        }
+    }
+\end{algorithm}
+
 \subsubsection{Testing}
 
 \TODO{
 Here describe that we did unit testing for each rule, and in the end achieved line coverage of 97\%
 }
+
+\TODO{
+Run the tests to see how many test cases we have.
+}
+
+As mentioned in~\ref{subsec:testing}, we also performed internal testing before applying tool to the real projects.
+We performed unit testing using \verbatim|Scalatest|~\cite{scalatest}.
+In order to measure line coverage, we used \verbatim|codecov|~\cite{codecov} which allowed us to measure
+code coverage during every build in the continuous integration (CI) environment.
+
+In the end, we had at least a single positive test case (a code pattern where our analyzer should detect a code smell)
+for every rule that we have implemented and we achieved line coverage of $97.25\%$ with $X$ test cases.
 
 \subsubsection{Use cases}
 
