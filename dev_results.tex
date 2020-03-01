@@ -20,12 +20,12 @@ Describe how queries from Kristiina's paper were transformed into SonarQube impl
 
 As the code smells described by~\citeauthor{refactoring-fowler} are quite abstract, we needed
 a more concrete definitions in order to implement the code smells.
-In this paper, code smells are defined as GraphQL queries.
+In this paper, code smells are defined as Neo4j queries.
 However, SonarQube uses different pattern for code smell detection.
 
 In SonarQube, code smells are detected by applying visitor pattern~\cite{visitor_pattern} on the parsed
 AST of Java source code.
-So in order to translate GraphQL queries into the definitions that are applicable to SonarQube, we used the following
+So in order to translate Neo4j queries into the definitions that are applicable to SonarQube, we used the following
 algorithm that can be seen in~\ref{translation_algorithm}.
 
 Firstly, we needed to determine to context of the rule, such as if the rule should detect methods, classes or variables.
@@ -37,9 +37,9 @@ For example, in \verbatim|Shotgun Surgery| we need to detect method invocations 
 
 \begin{algorithm}
     \label{translation_algorithm}
-    \caption{Translation GraphQL queries into SonarQube rules}
-    \KwIn{GraphQL query}
-    \KwResult{GraphQL query translated into SonarQube implementation}
+    \caption{Translation Neo4j queries into SonarQube rules}
+    \KwIn{Neo4j query}
+    \KwResult{Neo4j query translated into SonarQube implementation}
     \SetKwFunction{DetermineContext}{DetermineContext}
     \SetKwFunction{SensorRule}{SensorRule}
     \SetKwFunction{RegularRule}{RegularRule}
@@ -48,7 +48,7 @@ For example, in \verbatim|Shotgun Surgery| we need to detect method invocations 
     \SetKwData{r}{r}
     \BlankLine
 
-    \lForEach{GraphQL query \q}{
+    \lForEach{Neo4j query \q}{
         \Context$\leftarrow$ \DetermineContext{$q$}
         \uIf{rule \r requires context of other rules}{
             \SensorRule{\Context, \r}
