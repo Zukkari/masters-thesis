@@ -25,6 +25,8 @@ However, SonarQube uses different pattern for code smell detection.
 
 In SonarQube, code smells are detected by applying visitor pattern~\cite{visitor_pattern} on the parsed
 AST of Java source code.
+Code smells are detecting by visiting specific nodes in the tree (such as classes or methods) and analyzing
+the visited nodes in order to find the code smell pattern.
 So in order to translate Neo4j queries into the definitions that are applicable to SonarQube, we used the following
 algorithm that can be seen in~\ref{translation_algorithm}.
 
