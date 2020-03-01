@@ -74,27 +74,32 @@ plot_df_transpose <- transpose(plot_df)
 
 df <- plot_df_transpose %>% mutate(names = colnames(plot_df))
 df$names <- as.factor(df$names)
+df <- df %>% mutate(distr = V1/nrow(dataset))
 ```
 
 ```{r}
-ggplot(df, aes(x = names, y = (V1/nrow(dataset)))) + 
+ggplot(df, aes(x = reorder(names, -distr), y = distr)) + 
           geom_bar(stat = "identity") + 
           scale_y_continuous(labels=scales::percent) +
-          ylab("How many applications contain code smell X?") +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1))
+          theme_bw() +
+          ylab("") +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+          xlab("How many applications contain code smell X?")
 ```
 
 
 # Distribution of code smells inside analyzed applications
 
 ```{r}
-distribution <- data.frame(as.list(total)) %>% transpose %>% mutate(rule = colnames(plot_df))
+distribution <- data.frame(as.list(total)) %>% transpose %>% mutate(rule = colnames(plot_df)) %>% arrange(V1) %>% mutate(distr = V1/as_total_num)
 ```
 
 ```{r}
-ggplot(distribution, aes(x = rule, y = (V1/as_total_num))) + 
+ggplot(distribution, aes(x = reorder(rule, -distr), y = distr)) + 
           geom_bar(stat = "identity") + 
+          theme_bw() +
           scale_y_continuous(labels=scales::percent) +
-          ylab("Distribution of code smells inside of analyzed applications") +
-          theme(axis.text.x = element_text(angle = 90, hjust = 1))
+          xlab("Distribution of code smells inside of analyzed applications") +
+          theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+          ylab("")
 ```
