@@ -109,6 +109,14 @@
 %\definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 % Standard package for drawing algorithms
 % Since the thesis in article format we must define \chapter for
@@ -428,26 +436,11 @@
 
     \subsection{Developed tools}\label{subsec:developed-tools}
 
-    \TODO{
-        Here describe plugin for SonarQube.
-        In introduction we mentioned groups that we think the tool might be used for.
-        So here we provide our ideas how each group can be helped with our tool,
-        provide screenshots or other artifacts that might help our points.
-
-        Also describe the results of developing the bulk analyzer, provide simple
-        instructions on how to run this tool, provide output from help command, which
-        will show input parameters and basic instruction on how to run.
-    }
+    \input{dev_results.tex}
 
     \subsection{Analysis results}\label{subsec:analysis-results}
 
-    \TODO{
-        Describe the results that we got from project analysis.
-        Say how those compare to already existing results.
-        Distribution of code smells that are not yet published.
-        How many projects in corpus versus how many were actually successfully analyzed.
-        Statistics on code smell distributions inside analyzed applications.
-    }
+    \input{analysis_results.tex}
 
     \newpage
 

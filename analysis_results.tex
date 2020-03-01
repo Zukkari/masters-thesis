@@ -1,0 +1,19 @@
+\subsubsection{Analysis results}
+
+\TODO{
+    Describe the results that we got from project analysis.
+    Say how those compare to already existing results.
+    Distribution of code smells that are not yet published.
+    How many projects in corpus versus how many were actually successfully analyzed.
+    Statistics on code smell distributions inside analyzed applications.
+}
+
+As a result, we were able to analyze 193 applications.
+This number is vastly different from the total amount of applications that are present in the corpus for multiple reasons.
+Firstly, some of the projects were not using a build system (Gradle or Maven).
+This is an issue because to compile the project we would need to specify the classpath manually and
+this is quite difficult to do programmatically.
+Moreover, even if we managed to compile the projects, SonarQube is provided as a plugin for the build systems which means
+that we would still not be able to run the analysis.
+Secondly, some of the projects required extra configuration before building, which is also not possible to do
+programmatically because each project is different and requires manual configuration.
