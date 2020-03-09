@@ -46,6 +46,7 @@
 \usepackage{microtype}  %towards typographic perfection...
 \usepackage{inconsolata} %nicer font for code listings. (Use \ttfamily for lstinline bastype)
 
+\usepackage[section]{placeins}
 
 % Use package babel for English or Estonian
 % If you use Estonian make sure that Estonian hyphenation is installed
@@ -72,7 +73,7 @@
 %% unsrt --> \usepackage[style=numeric,sorting=none]{biblatex}
 %% alpha --> \usepackage[style=alphabetic]{biblatex}
 %\DefineBibliographyStrings{estonian}{and={ja}}
-%\addbibresource{masters-thesis.bib}
+%\addbibresource{masters-thesis-template.bib}
 
 
 % General packages for math in general, theorems and symbols
@@ -105,7 +106,7 @@
 % Packages for defining colourful text together with some colours
 \usepackage{color}
 \usepackage{xcolor}
-%\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
 %\definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
@@ -180,7 +181,7 @@
 % ftp://tug.ctan.org/tex-archive/macros/latex/contrib/semantic/semantic.pdf
 \usepackage{proof}
 \usepackage{semantic}
-\usepackage{natbib}
+\usepackage[numbers]{natbib}
 \setlength{\inferLineSkip}{4pt}
 \def\predicatebegin #1\predicateend{$\Gamma \vdash #1$}
 
@@ -455,8 +456,9 @@
     }
 
 % BibTeX bibliography
-    \bibliographystyle{alpha} %plain=[1], alpha=[BGZ09]
-    \bibliography{masters-thesis}
+    \newpage
+    \bibliographystyle{plainnat}
+    \bibliography{masters-thesis-template}
 
     \addcontentsline{toc}{section}{\refname}
 

@@ -15,7 +15,7 @@
 \subsubsection{Implementation}
 
 \TODO{
-Describe how queries from Kristiina's paper were transformed into SonarQube implementation.
+    Describe how queries from Kristiina's paper were transformed into SonarQube implementation.
 }
 
 As the code smells described by~\citeauthor{refactoring-fowler} are quite abstract, we needed
@@ -28,18 +28,18 @@ AST of Java source code.
 Code smells are detecting by visiting specific nodes in the tree (such as classes or methods) and analyzing
 the visited nodes in order to find the code smell pattern.
 So in order to translate Neo4j queries into the definitions that are applicable to SonarQube, we used the following
-algorithm that can be seen in~\ref{translation_algorithm}.
+algorithm that can be seen in~\ref{alg:translation_algorithm}.
 
 Firstly, we needed to determine to context of the rule, such as if the rule should detect methods, classes or variables.
 Then, we needed to decide if the rule required could be detected in a single scan of the context.
 For example, if we need to decide whether or not the method has $X$ amount of parameters, we need would need to visit
 this single method only a single time and we do not need to know anything about other methods.
 But in some cases, we need to account for other nodes in the tree.
-For example, in \verbatim|Shotgun Surgery| we need to detect method invocations that can be present in other classes.
+For example, in \verb|Shotgun Surgery| we need to detect method invocations that can be present in other classes.
 
-\begin{algorithm}
-    \label{translation_algorithm}
+\begin{algorithm} [!htb]
     \caption{Translation Neo4j queries into SonarQube rules}
+    \label{alg:translation_algorithm}
     \KwIn{Neo4j query}
     \KwResult{Neo4j query translated into SonarQube implementation}
     \SetKwFunction{DetermineContext}{DetermineContext}
@@ -50,30 +50,86 @@ For example, in \verbatim|Shotgun Surgery| we need to detect method invocations 
     \SetKwData{r}{r}
     \BlankLine
 
-    \lForEach{Neo4j query \q}{
-        \Context$\leftarrow$ \DetermineContext{$q$}
-        \uIf{rule \r requires context of other rules}{
-            \SensorRule{\Context, \r}
+    \ForEach{Neo4j query \q}{ \\
+        \Context$\leftarrow$ \DetermineContext{$q$} \\
+        \uIf{rule \r classes required for context $> 1$}{ \\
+            \SensorRule{\Context, \r}; \\
         }
-        \Else{
-            \RegularRule{\Context, \r}
-        }
+        \Else{ \\
+            \RegularRule{\Context, \r}; \\
+        };
     }
 \end{algorithm}
+
+As we can see from~\ref{alg:translation_algorithm}, there are 2 types of rules.
+Regular rules (defined as \verb|RegularRule| in algorithm) require the context only of a single class under analysis.
+Those are the rules, where we can decide whether a specific code smell exists or not just by looking at a single node
+and its sub-nodes.
+Example of such rules are \verb|Data class|, \verb|Message chains| or \verb|Blob class|.
+
+However, for some rules, we need more than a context of a single file.
+Examples of such rules are: \verb|Brain method| and \verb|Cyclic dependencies|.
+In order to give more freedom to plugin writers, SonarQube provides an additional way to write custom rules - sensors.
+\verb|Sensor| is an interface provided by SonarQube, which defines only a single method \verb|execute|.
+This is called by the scanner during the analysis and the behaviour of this method is defined by the implementation.
+So, we created own sensor that contains stateful rules.
+The sensor accepts Java files, parses them into the AST, adds type information and then passes the AST to the rules.
+Rules scan the tree passed by the sensor.
+After all of the rules have been scanned, sensor calls method \verb|afterAllScanned|, indicating that all of the
+input classes have been scanned and allows rules to report any issues detected during the analysis.
+Visualization of the sensor analysis can be seen in algorithm~\ref{alg:sensor_algorithm}.
+
+\begin{algorithm} [!htb]
+    \caption{Performing analysis using sensor}
+    \label{alg:sensor_algorithm}
+    \KwIn{Sensor context}
+    \KwResult{Analysis results reported to SonarQube server}
+    \SetKwFunction{CreateClassPath}{CreateClassPath}
+    \SetKwFunction{ParseJavaFile}{ParseJavaFile}
+    \SetKwFunction{UpdateSymbolicModel}{UpdateSymbolicModel}
+    \SetKwFunction{Scan}{Scan}
+    \SetKwFunction{AfterAllScanned}{AfterAllScanned}
+    \SetKwFunction{UploadResults}{UploadResults}
+    \SetKwData{AST}{AST}
+    \SetKwData{AstWithSymbolicModel}{AstWithSymbolicModel}
+    \SetKwData{c}{c}
+    \SetKwData{r}{r}
+    \SetKwData{j}{j}
+    \BlankLine
+
+    \c$\leftarrow$ \CreateClassPath; \\
+
+    \ForEach{Java file \j} {
+        \AST$\leftarrow$ \ParseJavaFile { \j }; \\
+        \AstWithSymbolicModel$\leftarrow$ \UpdateSymbolicModel{\j, \c};
+
+        \ForEach{Rule \r} {
+            \Scan{\r, \AstWithSymbolicModel};
+        };
+    }
+
+    \ForEach{Rule \r} {
+        \AfterAllScanned{};
+    }
+
+    \UploadResults{};
+\end{algorithm}
+
+\FloatBarrier
 
 \subsubsection{Testing}
 
 \TODO{
-Here describe that we did unit testing for each rule, and in the end achieved line coverage of 97\%
+    Here describe that we did unit testing for each rule, and in the end achieved line coverage of 97\%
 }
 
 \TODO{
-Run the tests to see how many test cases we have.
+    Run the tests to see how many test cases we have.
 }
 
 As mentioned in~\ref{subsec:testing}, we also performed internal testing before applying tool to the real projects.
-We performed unit testing using \verbatim|Scalatest|~\cite{scalatest}.
-In order to measure line coverage, we used \verbatim|codecov|~\cite{codecov} which allowed us to measure
+We performed unit testing using \verb|Scalatest|~\cite{scalatest}.
+In order to measure line coverage, we used \verb|codecov|~\cite{codecov} which allowed us to measure
 code coverage during every build in the continuous integration (CI) environment.
 
 In the end, we had at least a single positive test case (a code pattern where our analyzer should detect a code smell)
@@ -82,11 +138,11 @@ for every rule that we have implemented and we achieved line coverage of $97.25\
 \subsubsection{Use cases}
 
 \TODO{
-In this section, we should describe how external users can use our tool.
-We can focus on 3 groups that we will introduce in introduction.
-Developers, project managers and data scientist?
-For each group, we can write a section and describe how they can use the tool and see useful
-information about the projects.
+    In this section, we should describe how external users can use our tool.
+    We can focus on 3 groups that we will introduce in introduction.
+    Developers, project managers and data scientist?
+    For each group, we can write a section and describe how they can use the tool and see useful
+    information about the projects.
 }
 
 \paragraph{Developers}
@@ -97,25 +153,25 @@ information about the projects.
 }
 
 \TODO{
-Developers can use this tool for statical analysis of the application they develop.
-Here we can show detailed view of a single code smell, with message line
-and rule description and "ideas" on how to fix the bug in the rule description.
+    Developers can use this tool for statical analysis of the application they develop.
+    Here we can show detailed view of a single code smell, with message line
+    and rule description and "ideas" on how to fix the bug in the rule description.
 }
 
 \paragraph{Project managers}
 
 \TODO{
-Project managers can see the overview of the project and how
-much code smells there are in the project.
-Also they can see how many of each rule, etc.
-Here we can show general view of the project (the dashboard).
+    Project managers can see the overview of the project and how
+    much code smells there are in the project.
+    Also they can see how many of each rule, etc.
+    Here we can show general view of the project (the dashboard).
 }
 
 \paragraph{Data scientists}
 
 \TODO{
-How can the data scientists use this?
-In general, they can export datasets from SonarQube like we did.
-Perhaps we can describe here how we did this, and what we managed to create (e.g. analysis results).
-With this, they can perhaps find correlations if different code smells can be usually found together.
+    How can the data scientists use this?
+    In general, they can export datasets from SonarQube like we did.
+    Perhaps we can describe here how we did this, and what we managed to create (e.g. analysis results).
+    With this, they can perhaps find correlations if different code smells can be usually found together.
 }
