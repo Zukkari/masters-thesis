@@ -3,6 +3,8 @@ Masters thesis repository
 
 # Quantile analysis
 
+Analysis performed including anonymous classes:
+
 | Location | Event type | Q1 | Q2 | Q3 |
 |---|---|---|---|---|
 |	class |	attributes |	0 | 0 | 3.000000 |
@@ -20,3 +22,5 @@ Masters thesis repository
 |	method |	instructions |	1 |	2 |	7.000000 |
 |	method |	parameters |	0 |	1 |	1.000000 |
 |	method |	switchStatements |	0 |	0 |	0.000000 |
+
+Also worth mentioning that we excluded anonymous classes in the second analysis.
