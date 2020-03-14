@@ -1,0 +1,26 @@
+1. change dietmar to co-supervisor
+2. SonarQube plugin -> += development
+3. tool -> plugin
+4. Tools used -> Development tools used
+5. Encountered problems move this to results or discussion
+6. Selected datasets -> Datasets
+7. Why we selected this dataset? This corpus provides link to repositories
+8. Include repository link
+9. Include figure of architecture and flow of analysis
+10. Give an idea of how much work was put into implementation and provide an example.
+11. Implementation -> Translating queries into SonarQube rules
+12. Use cases -> Potential usages
+13. Add analysis procedure that describes how we run the analysis (exact steps)
+14. In the results we go step by step and explain in each section. so how many projects were analyzed? show the thresholds, and provide statistics. and provide how the results are useful for different user groups.
+15. Discussion with encountered problems. and analysis results. Discussion goes through all piece of results: about the tool, about the results, problems with generating them, usefulness for different stakeholders. how can they use the tools for their daily work?
+
+17. Two tables:
+
+| Static value | Q1 | Q2 | Q3 |
+
+
+| Rule name | variable name | Formula | VAlue | (For those that are not calcualted, mention that you used static trhreshold from other source)
+
+18. Measure how much the analysis takes.
+For both stats analysis and code smell analysis.
+
