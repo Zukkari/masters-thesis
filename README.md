@@ -39,7 +39,7 @@ After removing anonymous classes:
 |	class |	methods |	1 |	3.0000000	 | 7.000000 |
 |	interface |	numberOfMethods |	1 |	1.0000000 |	2.000000 |
 |	method |	calls |	- |	-	| - |
-|	method |	chainLength |	1 |	1.0000000	| 1.000000 |
+|	method |	chainLength |	2 |	2.0000000	| 3.000000 |
 |	method |	complexity |	0 |	0.0000000 |	2.000000 |
 |	method |	instructions |	1 |	2.0000000 |	8.000000 |
 |	method |	parameters |	0 |	1.0000000 |	1.000000 |
