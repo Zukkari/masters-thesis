@@ -11,7 +11,7 @@
     and since the corpus is large, the analysis should be performed on the server side by the program
     and not by the human who would perform a manual check.
 }
-\subsection{SonarQube plugin}\label{subsec:sonarqube-plugin}
+\subsection{SonarQube plugin development}\label{subsec:sonarqube-plugin-development}
 
 In order to fulfil our task of analyzing a large corpus of application to detect the code smells,
 we built a tool that is stable, scalable and allows us to aggregate the results of the
@@ -97,7 +97,7 @@ can be executed inside a SonarQube instance.
     (detection of cognitive complexity, number of lines of code etc).
 }
 
-\subsection{Tools used}\label{subsec:tools-used}
+\subsection{Development tools used}\label{subsec:development-tools-used}
 
 In order to implement the plugin, we used SonarQube as the implementation platform.
 We decided to go with SonarQube platform for two primary reasons.
@@ -117,17 +117,6 @@ method parameters, and pattern matching.
 As a plugin implementation base, we used Sonar Java plugin since it is recommended
 base when writing plugins for the Java language and as mentioned previously, it provides
 an API to use Java AST\@.
-
-\subsection{Encountered problems}\label{subsec:encountered-problems}
-
-Previously we also mentioned that plugins are loaded into the SonarQube dynamically and that
-this plugin must be used with \verb|provided| scope when compiling the plugin.
-This means that only some of the packages are provided during the runtime and not all of the classes
-provided by the Sonar Java plugin can be used during the runtime.
-This is an issue, because the plugin itself provides a lot of utilities that could be reused inside
-the custom rules (for example cognitive complexity counter, lines of code counter).
-To overcome this limitation, we extracted those utilities into a separate package and included it in
-the compiled artifact of our plugin, so that we could use those tools during the analysis execution.
 
 \subsection{Testing}\label{subsec:testing}
 
@@ -182,3 +171,10 @@ public class DataClass { // Noncompliant {{Refactor this class so it includes mo
     \caption{Example of a data class code smell test file.}
     \label{data_class_example}
 \end{figure}
+
+
+\subsection{Analysis procedure}\label{subsec:analysis-procedure}
+
+\TODO{
+In section we go over exact steps that we performed when analyzing the applications.
+}

@@ -22,3 +22,7 @@ For this purpose, we used a corpus consisting of 1509 applications that were pub
 This corpus consists of Java and Kotlin applications for the Android platform.
 In our analysis, we analyzed applications developed in Java and ignored ones implemented in Kotlin.
 
+The main reason why we selected this corpus is because it provides links to the original repositories.
+This is important, because our tool relies on the analysis of the source code and not compiled \verb|.apk| binaries
+that are deployed the the Android platform.
+This way we were able to clone the original repositories and perform source code analysis of the applications.

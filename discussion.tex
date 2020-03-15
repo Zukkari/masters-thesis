@@ -1,0 +1,51 @@
+\subsection{Encountered problems}\label{subsec:encountered-problems}
+
+Previously we also mentioned that plugins are loaded into the SonarQube dynamically and that
+this plugin must be used with \verb|provided| scope when compiling the plugin.
+This means that only some of the packages are provided during the runtime and not all of the classes
+provided by the Sonar Java plugin can be used during the runtime.
+This is an issue, because the plugin itself provides a lot of utilities that could be reused inside
+the custom rules (for example cognitive complexity counter, lines of code counter).
+To overcome this limitation, we extracted those utilities into a separate package and included it in
+the compiled artifact of our plugin, so that we could use those tools during the analysis execution.
+
+\subsubsection{Potential usages}
+
+\TODO{
+    In this section, we should describe how external users can use our tool.
+    We can focus on 3 groups that we will introduce in introduction.
+    Developers, project managers and data scientist?
+    For each group, we can write a section and describe how they can use the tool and see useful
+    information about the projects.
+}
+
+\paragraph{Developers}
+
+\TODO{
+    Think of how this tool is useful for developers.
+    Obviously this is the main focus group.
+}
+
+\TODO{
+    Developers can use this tool for statical analysis of the application they develop.
+    Here we can show detailed view of a single code smell, with message line
+    and rule description and "ideas" on how to fix the bug in the rule description.
+}
+
+\paragraph{Project managers}
+
+\TODO{
+    Project managers can see the overview of the project and how
+    much code smells there are in the project.
+    Also they can see how many of each rule, etc.
+    Here we can show general view of the project (the dashboard).
+}
+
+\paragraph{Data scientists}
+
+\TODO{
+    How can the data scientists use this?
+    In general, they can export datasets from SonarQube like we did.
+    Perhaps we can describe here how we did this, and what we managed to create (e.g. analysis results).
+    With this, they can perhaps find correlations if different code smells can be usually found together.
+}
