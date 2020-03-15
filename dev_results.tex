@@ -24,6 +24,81 @@ how much work was done.
 Also mention that this tool is open source and provide link to the repository.
 }
 
+\TODO{
+Count how many classes there are in implementation
+}
+
+As the result of development we created a plugin that is able to detect 30 code smells.
+The resulting implementation contains $X$ classes and 6476 lines of Scala code.
+This number includes tests but does not include test resources (Java files that were
+used to test code smell detection).
+
+\TODO{
+Add figure of architecture and flow
+}
+
+The basic flow of the plugin operation can be seen on figure $X$.
+Firstly, we have to register our plugin inside a SonarQube instance.
+Secondly, we have to load our rules and descriptions of the rules into the instance of SonarQube.
+Finally, the user can create a new profile with our rules or add the rules to an existing
+profile and then run the analysis using the rules that we provide inside our plugin.
+
+As mentioned previously in section~\ref{subsec:sonarqube-plugin-development}, the plugin itself operates on the Java
+AST\@.
+As an example, we provided an implementation of \say{Complex class} rule which can be seen in figure~\ref{complex_class_implementation}.
+This code smell inspects all class nodes which are found in the AST, calculates the complexity of all methods
+in the class and reports an issue if the complexity of the class is greater than configured threshold.
+
+\begin{figure} [htb]
+    \lstset{language=Scala}
+    \begin{lstlisting}
+@Rule(key = "ComplexClass")
+class ComplexClass
+    extends JavaRule
+    with ComplexityAccessor
+    with ContextReporter {
+
+        private var context: JavaFileScannerContext = _
+
+        private var veryHighClassComplexity: Double = _
+
+        override def scanFile(
+        javaFileScannerContext: JavaFileScannerContext): Unit = {
+            this.context = javaFileScannerContext
+
+            veryHighClassComplexity = config
+            .flatMap(
+            _.getDouble(
+            ConfigurationProperties.COMPLEX_CLASS_VERY_HIGH_COMPLEXITY.key))
+            .orElse(
+            ConfigurationProperties.COMPLEX_CLASS_VERY_HIGH_COMPLEXITY.defaultValue.toDouble)
+
+            scan(context.getTree)
+        }
+
+        override def scannerContext: JavaFileScannerContext = context
+
+        override def visitClass(tree: ClassTree): Unit = {
+            val classComplexity = tree.members.asScala
+            .filter(_.is(Kind.METHOD))
+            .map(_.asInstanceOf[MethodTree])
+            .map(complexity)
+            .sum
+
+            report(
+            s"Complex class: class complexity $classComplexity is higher than configured: $veryHighClassComplexity",
+            tree,
+            classComplexity >= veryHighClassComplexity
+            )
+
+            super.visitClass(tree)
+        }
+    }
+    \end{lstlisting}
+    \caption{Implementation of "Complex class" rule.}
+    \label{complex_class_implementation}
+\end{figure}
+
 \subsubsection{Translating queries into SonarQube rules}
 
 \TODO{
