@@ -12,7 +12,7 @@
     will show input parameters and basic instruction on how to run.
 }
 
-\subsection{Implementation}\label{subsec:implementation}
+\subsubsection{Implementation}\label{subsec:implementation}
 
 \TODO {
 Describe implementation of the tool here.
@@ -99,11 +99,47 @@ class ComplexClass
     \label{complex_class_implementation}
 \end{figure}
 
+\FloatBarrier
+
+The high level architecture of the plugin can be seen on figure~\ref{architecture_diagram}.
+The plugin initialization is started when SonarQube loads the plugin into memory.
+When the plugin is loaded, the plugin registers its extensions and delegates all of the
+further work to the extensions.
+Currently there are 2 extensions, rules registrar (\verb|SonarAcademicRulesRegistrar|) and
+sensor (\verb|SonarAcademicSensor|).
+
+
+The purpose rules registrar is to load all of the rules, their descriptions and then register
+those rules with the SonarQube so that the rules are could be enabled or disabled by the
+user in the SonarQube user interface and further be used in the analysis.
+
+
+The sensor acts as a bridge between SonarQube and rules which require context during their runtime.
+The idea is that sensor receives a whole project as an input, as opposed to single files which is the case for the
+regular rules, and then feeds individual files to the sensor rules.
+The difference between regular rules and sensor rules is explained in section~\ref{subsubsec:translating-queries}.
+
+After the plugin has been loaded, SonarQube delegates analysis of single files to the rules.
+For sensor rules, SonarQube delegates the whole project and then the sensor performs analysis of single
+files for all sensor rules.
+
+\begin{figure}[ht]
+    \floatstyle{plain}
+    \restylefloat{figure}
+    \begin{center}
+        \includegraphics[scale=0.7]{figures/architecture_diagram.png}
+        \caption{High level architecture of Sonar Academic Java Plugin.}
+        \label{architecture_diagram}
+    \end{center}
+\end{figure}
+
 The plugin is open source and full implementation can be found in the Github repository~\cite{sonar_plugin}.
 The implementation contains not only the rules for the code smell detection, but also additional classes
 that are required for the correct operation and rule registration inside SonarQube instance.
 
-\subsubsection{Translating queries into SonarQube rules}
+\FloatBarrier
+
+\subsubsection{Translating queries into SonarQube rules}\label{subsubsec:translating-queries}
 
 \TODO{
     Describe how queries from Kristiina's paper were transformed into SonarQube implementation.
