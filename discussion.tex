@@ -1,15 +1,5 @@
-\subsection{Encountered problems}\label{subsec:encountered-problems}
 
-Previously we also mentioned that plugins are loaded into the SonarQube dynamically and that
-this plugin must be used with \verb|provided| scope when compiling the plugin.
-This means that only some of the packages are provided during the runtime and not all of the classes
-provided by the Sonar Java plugin can be used during the runtime.
-This is an issue, because the plugin itself provides a lot of utilities that could be reused inside
-the custom rules (for example cognitive complexity counter, lines of code counter).
-To overcome this limitation, we extracted those utilities into a separate package and included it in
-the compiled artifact of our plugin, so that we could use those tools during the analysis execution.
-
-\subsubsection{Potential usages}
+\subsection{Potential usages}\label{subsec:potential-usages}
 
 \TODO{
     In this section, we should describe how external users can use our tool.
@@ -19,7 +9,7 @@ the compiled artifact of our plugin, so that we could use those tools during the
     information about the projects.
 }
 
-\paragraph{Developers}
+\subsubsection{Developers}
 
 \TODO{
     Think of how this tool is useful for developers.
@@ -32,7 +22,7 @@ the compiled artifact of our plugin, so that we could use those tools during the
     and rule description and "ideas" on how to fix the bug in the rule description.
 }
 
-\paragraph{Project managers}
+\subsubsection{Project managers}
 
 \TODO{
     Project managers can see the overview of the project and how
@@ -41,7 +31,7 @@ the compiled artifact of our plugin, so that we could use those tools during the
     Here we can show general view of the project (the dashboard).
 }
 
-\paragraph{Data scientists}
+\subsubsection{Data scientists}
 
 \TODO{
     How can the data scientists use this?

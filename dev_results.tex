@@ -124,8 +124,6 @@ For sensor rules, SonarQube delegates the whole project and then the sensor perf
 files for all sensor rules.
 
 \begin{figure}[ht]
-    \floatstyle{plain}
-    \restylefloat{figure}
     \begin{center}
         \includegraphics[scale=0.7]{figures/architecture_diagram.png}
         \caption{High level architecture of Sonar Academic Java Plugin.}
@@ -147,7 +145,8 @@ that are required for the correct operation and rule registration inside SonarQu
 
 As the code smells described by~\citeauthor{refactoring-fowler} are quite abstract, we needed
 a more concrete definitions in order to implement the code smells.
-In this paper, code smells are defined as Neo4j queries.
+In order to get more concrete implementation of the code smells we used the paper by~\citeauthor{ios_code_smell_paper}.
+In~\cite{ios_code_smell_paper}, code smells are defined as Neo4j queries.
 However, SonarQube uses different pattern for code smell detection.
 
 In SonarQube, code smells are detected by applying visitor pattern~\cite{visitor_pattern} on the parsed
