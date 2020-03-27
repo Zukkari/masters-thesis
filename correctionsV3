@@ -1,0 +1,10 @@
+- Describe the figures
+- Discussion: 
+	- Talk about certain difficulties where did I need to find the workarounds where something was not straight forward
+	- Point out some limitations that I wanted to do but are still missing
+	- Talk about the analysis results:
+		- Compare with another paper
+			- Take only code smells that are only in that table and compare their and results (paretto chart) (guess the values)
+			- Ignore the blue one (because this is desktop)
+			- It would be nice if the results are not tha different (gives some confidence that our calculations make sense), but we can analyze much more
+- Fix the captions for the tables
