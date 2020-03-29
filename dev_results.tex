@@ -37,7 +37,7 @@ used to test code smell detection).
 Add figure of architecture and flow
 }
 
-The basic flow of the plugin operation can be seen on figure $X$.
+The basic flow of the plugin operation can be seen in figure~\ref{architecture_diagram}.
 Firstly, we have to register our plugin inside a SonarQube instance.
 Secondly, we have to load our rules and descriptions of the rules into the instance of SonarQube.
 Finally, the user can create a new profile with our rules or add the rules to an existing
@@ -154,7 +154,7 @@ AST of Java source code.
 Code smells are detecting by visiting specific nodes in the tree (such as classes or methods) and analyzing
 the visited nodes in order to find the code smell pattern.
 So in order to translate Neo4j queries into the definitions that are applicable to SonarQube, we used the following
-algorithm that can be seen in~\ref{alg:translation_algorithm}.
+algorithm that can be seen in algorithm~\ref{alg:translation_algorithm}.
 
 Firstly, we needed to determine to context of the rule, such as if the rule should detect methods, classes or variables.
 Then, we needed to decide if the rule required could be detected in a single scan of the context.
@@ -187,7 +187,7 @@ For example, in \verb|Shotgun Surgery| we need to detect method invocations that
     }
 \end{algorithm}
 
-As we can see from~\ref{alg:translation_algorithm}, there are 2 types of rules.
+As we can see from the algorithm~\ref{alg:translation_algorithm}, there are 2 types of rules.
 Regular rules (defined as \verb|RegularRule| in algorithm) require the context only of a single class under analysis.
 Those are the rules, where we can decide whether a specific code smell exists or not just by looking at a single node
 and its sub-nodes.
@@ -253,7 +253,7 @@ Visualization of the sensor analysis can be seen in algorithm~\ref{alg:sensor_al
     Run the tests to see how many test cases we have.
 }
 
-As mentioned in~\ref{subsec:testing}, we also performed internal testing before applying tool to the real projects.
+As mentioned in section~\ref{subsec:testing}, we also performed internal testing before applying tool to the real projects.
 We performed unit testing using \verb|Scalatest|~\cite{scalatest}.
 In order to measure line coverage, we used \verb|codecov|~\cite{codecov} which allowed us to measure
 code coverage during every build in the continuous integration (CI) environment.

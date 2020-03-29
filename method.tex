@@ -51,7 +51,7 @@ This is relevant because both SonarQube and SonarLint rely on Sonar compute engi
 a plugin for either of those tools and it would be usable in both of them.
 
 During the runtime of SonarQube, plugins can be installed dynamically, either from the marketplace or they can
-also loaded from the \url{/opt/sonarqube/extensions/plugins/} directory as stated in the documentation.
+also be loaded from the \url{/opt/sonarqube/extensions/plugins/} directory as stated in the documentation.
 This means that plugins will be loaded dynamically during the execution of the analysis and since the documentation
 states the the Sonar Java plugin must be included with \verb|provided| scope during compilation (which means that it
 will not be included in the final compiled artifact of the plugin), it means that not all of the classes might be

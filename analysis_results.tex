@@ -15,7 +15,7 @@ that we would still not be able to run the analysis.
 Secondly, some of the projects required extra configuration before building, which is also not possible to do
 programmatically because each project is different and requires manual configuration.
 
-The analysis was performed on a machine with \verb|Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz| and 16GB of RAM\@.
+The analysis was performed on a machine with \verb|Intel(R) Core(TM) i5-8250U CPU|\verb| @ 1.60GHz| and 16GB of RAM\@.
 The statistics gathering for the thresholds took $441$ minutes in total with $2.24$ minutes on average per project.
 However, running a project with all of the rules for code smell detections took $565$ minutes with $2.93$ minutes on average per project.
 Note that this includes only the analysis itself and does not factor in the process of bulding and compiling the source
@@ -76,11 +76,11 @@ user inputs and mobile applications are mostly about working with user input.
     \end{center}
 \end{table}
 
-As it can be seen, some of the values are missing from the table.
+As it can be seen, some of the values are missing from the table~\ref{threshold_calculation_table}.
 Due to time constraints, we were not able to collect all of the required statistics for all of the code smells
 and since we were missing some of the values, we reused the values that were used by~\citeauthor{ios_code_smell_paper} in~\cite{ios_code_smell_paper}.
 
-The complete list of calculated thresholds can be seen in table~\ref{threshold_calculation_table}.
+The complete list of calculated thresholds can be seen in table~\ref{threshold_values_table}.
 This were the thresholds that were the used for code smell detection when retrieving the results.
 The column \say{Code smell name} displays the rule for which the threshold was calculated.
 The column \say{Variable} displays the variable for which the threshold was calculated in the rule.
@@ -95,7 +95,7 @@ The column \say{Value} shows the final value that was used for \say{Variable} fo
             \scalebox{0.9}{
                 \begin{tabular} {| c | c | c | c | c |}
                     \hline
-                    \textbf{Code smell name} & \textbf{Variable} & \textbf{Mapping from threshold table} & \textbf{Formula} & \textbf{Value} \\ \hline
+                    \textbf{Code smell name} & \textbf{Variable} & \textbf{Mapping from table~\ref{threshold_calculation_table}} & \textbf{Formula} & \textbf{Value} \\ \hline
                     Long method & veryHighNumberOfInstructions & Method: instructions & $Q_3 + (Q_3 - Q_1)*1.5$ & 18.5  \\ \hline
                     Blob class & veryHighLackOfCohesionInMethods & Class: cohesion & $Q_3 + (Q_3 - Q_1)*1.5$ & 1.5  \\ \hline
                     Blob class & veryHighNumberOfMethods & Class: methods & $Q_3 + (Q_3 - Q_1)*1.5$ & 16  \\ \hline
