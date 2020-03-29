@@ -81,6 +81,8 @@ Due to time constraints, we were not able to collect all of the required statist
 and since we were missing some of the values, we reused the values that were used by~\citeauthor{ios_code_smell_paper} in~\cite{ios_code_smell_paper}.
 
 The complete list of calculated thresholds can be seen in table~\ref{threshold_values_table}.
+Values written in \texttt{italics} were not calculated based on table~\ref{threshold_calculation_table} due to missing values
+and thus were reused from the paper by~\cite{ios_code_smell_paper}.
 This were the thresholds that were the used for code smell detection when retrieving the results.
 The column \say{Code smell name} displays the rule for which the threshold was calculated.
 The column \say{Variable} displays the variable for which the threshold was calculated in the rule.
@@ -100,20 +102,20 @@ The column \say{Value} shows the final value that was used for \say{Variable} fo
                     Blob class & veryHighLackOfCohesionInMethods & Class: cohesion & $Q_3 + (Q_3 - Q_1)*1.5$ & 1.5  \\ \hline
                     Blob class & veryHighNumberOfMethods & Class: methods & $Q_3 + (Q_3 - Q_1)*1.5$ & 16  \\ \hline
                     Blob class & veryHighNumberOfAttributes & Class: attributes & $Q_3 + (Q_3 - Q_1)*1.5$ & 11  \\ \hline
-                    Shotgun surgery & veryHighNumberOfCallers & Method: calls & $Q_3 + (Q_3 - Q_1)*1.5$ & -  \\ \hline
+                    Shotgun surgery & veryHighNumberOfCallers & Method: calls & $Q_3 + (Q_3 - Q_1)*1.5$ & \texttt{2.5}  \\ \hline
                     Switch statements & veryHighNumberOfSwitchStatements & Method: switchStatements & $Q_3 + (Q_3 - Q_1)*1.5$ & 0  \\ \hline
                     Lazy class & mediumNumberOfInstructions & Class: instructions & $Q_2$ & 16  \\ \hline
-                    Lazy class & mediumCouplingBetweenObjectClasses & Class: coupling & $Q_2$ & -  \\ \hline
+                    Lazy class & mediumCouplingBetweenObjectClasses & Class: coupling & $Q_2$ & \texttt{0}  \\ \hline
                     Message chains & veryHighNumberOfChainedMessages & Method: chainLength & $Q_3 + (Q_3 - Q_1)*1.5$ & 4.5  \\ \hline
-                    Comments & veryHighNumberOfComments & Class: comments & $Q_3 + (Q_3 - Q_1)*1.5$ & -  \\ \hline
-                    Divergent change & veryHighNumberOfCalledMethods & - & $Q_3 + (Q_3 - Q_1)*1.5$ & -  \\ \hline
+                    Comments & veryHighNumberOfComments & Class: comments & $Q_3 + (Q_3 - Q_1)*1.5$ & \texttt{29.5}  \\ \hline
+                    Divergent change & veryHighNumberOfCalledMethods & - & $Q_3 + (Q_3 - Q_1)*1.5$ & \texttt{2.5}  \\ \hline
                     Long parameter list & veryHighNumberOfParameters & Method: parameters & $Q_3 + (Q_3 - Q_1)*1.5$ & 2.5  \\ \hline
                     Middle man & lowNumberOfInstructionsMethod & Method: instructions & $\max(Q_1 - (Q_3 - Q_1)*1.5, 0)$ & 0  \\ \hline
-                    Inappropriate intimacy & highNumberOfCallsBetweenClasses & - & $Q_3$ & -  \\ \hline
+                    Inappropriate intimacy & highNumberOfCallsBetweenClasses & - & $Q_3$ & \texttt{5}  \\ \hline
                     Brain method & highNumberOfInstructionsForClass & Class: instructions & $Q_3$ & 45  \\ \hline
                     Brain method & highCyclomaticComplexity & Method: complexity & $Q_3$ & 2  \\ \hline
                     God class & veryHighWeightedMethodCount & Class: complexity & $Q_3 + (Q_3 - Q_1)*1.5$ & 6.16844  \\ \hline
-                    Primitive obsession &veryHighPrimitiveVariableUse & - & Q_3 + $(Q_3 - Q_1)*1.5$ & -  \\ \hline
+                    Primitive obsession & veryHighPrimitiveVariableUse & - & Q_3 + $(Q_3 - Q_1)*1.5$ & \texttt{6}  \\ \hline
                     Complex class & veryHighClassComplexity & Class: complexity & $Q_3 + (Q_3 - Q_1)*1.5$ & 31.25  \\ \hline
                     Swiss army knife & veryHighNumberOfMethods & Interface: numberOfMethods & $Q_3 + (Q_3 - Q_1)*1.5$ & 3.5 \\ \hline
                 \end{tabular}
