@@ -5,7 +5,7 @@
     Why others didnt get analyzed?
 }
 
-As the result, 193 applications were successfully analyzed.
+As the result, 240 applications were successfully analyzed.
 This number is vastly different from the total amount of applications (1509) that are present in the corpus for multiple reasons.
 Firstly, some of the projects were not using a build system (Gradle or Maven).
 This is an issue because to compile the project we would need to specify the Classpath manually and
@@ -15,16 +15,16 @@ that we would still not be able to run the analysis.
 Secondly, some of the projects required extra configuration before building, which is also not possible to do
 programmatically because each project is different and requires manual configuration.
 
-The analysis was performed on a machine with \verb|Intel(R) Core(TM) i5-8250U CPU|\verb| @ 1.60GHz| and 16GB of RAM\@.
-The statistics gathering for the thresholds took $441$ minutes in total with $2.24$ minutes on average per project.
-However, running a project with all of the rules for code smell detections took $565$ minutes with $2.93$ minutes on average per project.
+The analysis was performed on a machine with \verb|Intel(R) Core(TM) i5-8250U CPU| \\ \verb|@ 1.60GHz| and 16GB of RAM\@.
+The statistics gathering for the thresholds took $441$ minutes in total with $1.84$ minutes on average per project.
+However, running a project with all of the rules for code smell detections took $565$ minutes with $2.35$ minutes on average per project.
 Note that this includes only the analysis itself and does not factor in the process of bulding and compiling the source
 application.
 
 In total, we analyzed $1450793$ lines of code.
-On average, each application had $6843.363$ lines of code with a median of $2982$ lines of code.
+On average, each application had $6044$ lines of code with a median of $2982$ lines of code.
 The largest application contained $52358$ lines of code and the smallest application had $73$ lines of code.
-The total number of detected code smells is $160775$ which means that there are $0.11$ code smells on average per line of code.
+The total number of detected code smells is $109602$ which means that there are $0.08$ code smells on average per line of code.
 
 \TODO{
     Threshold gathering and calculation.
@@ -81,7 +81,7 @@ Due to time constraints, we were not able to collect all of the required statist
 and since we were missing some of the values, we reused the values that were used by~\citeauthor{ios_code_smell_paper} in~\cite{ios_code_smell_paper}.
 
 The complete list of calculated thresholds can be seen in table~\ref{threshold_values_table}.
-Values written in \texttt{italics} were not calculated based on table~\ref{threshold_calculation_table} due to missing values
+Values in \textit{italics} were not calculated based on table~\ref{threshold_calculation_table} due to missing values
 and thus were reused from the paper by~\cite{ios_code_smell_paper}.
 This were the thresholds that were the used for code smell detection when retrieving the results.
 The column \say{Code smell name} displays the rule for which the threshold was calculated.
@@ -102,20 +102,20 @@ The column \say{Value} shows the final value that was used for \say{Variable} fo
                     Blob class & veryHighLackOfCohesionInMethods & Class: cohesion & $Q_3 + (Q_3 - Q_1)*1.5$ & 1.5  \\ \hline
                     Blob class & veryHighNumberOfMethods & Class: methods & $Q_3 + (Q_3 - Q_1)*1.5$ & 16  \\ \hline
                     Blob class & veryHighNumberOfAttributes & Class: attributes & $Q_3 + (Q_3 - Q_1)*1.5$ & 11  \\ \hline
-                    Shotgun surgery & veryHighNumberOfCallers & Method: calls & $Q_3 + (Q_3 - Q_1)*1.5$ & \texttt{2.5}  \\ \hline
+                    Shotgun surgery & veryHighNumberOfCallers & Method: calls & $Q_3 + (Q_3 - Q_1)*1.5$ & \textit{2.5}  \\ \hline
                     Switch statements & veryHighNumberOfSwitchStatements & Method: switchStatements & $Q_3 + (Q_3 - Q_1)*1.5$ & 0  \\ \hline
                     Lazy class & mediumNumberOfInstructions & Class: instructions & $Q_2$ & 16  \\ \hline
-                    Lazy class & mediumCouplingBetweenObjectClasses & Class: coupling & $Q_2$ & \texttt{0}  \\ \hline
+                    Lazy class & mediumCouplingBetweenObjectClasses & Class: coupling & $Q_2$ & \textit{0}  \\ \hline
                     Message chains & veryHighNumberOfChainedMessages & Method: chainLength & $Q_3 + (Q_3 - Q_1)*1.5$ & 4.5  \\ \hline
-                    Comments & veryHighNumberOfComments & Class: comments & $Q_3 + (Q_3 - Q_1)*1.5$ & \texttt{29.5}  \\ \hline
-                    Divergent change & veryHighNumberOfCalledMethods & - & $Q_3 + (Q_3 - Q_1)*1.5$ & \texttt{2.5}  \\ \hline
+                    Comments & veryHighNumberOfComments & Class: comments & $Q_3 + (Q_3 - Q_1)*1.5$ & \textit{29.5}  \\ \hline
+                    Divergent change & veryHighNumberOfCalledMethods & - & $Q_3 + (Q_3 - Q_1)*1.5$ & \textit{2.5}  \\ \hline
                     Long parameter list & veryHighNumberOfParameters & Method: parameters & $Q_3 + (Q_3 - Q_1)*1.5$ & 2.5  \\ \hline
                     Middle man & lowNumberOfInstructionsMethod & Method: instructions & $\max(Q_1 - (Q_3 - Q_1)*1.5, 0)$ & 0  \\ \hline
-                    Inappropriate intimacy & highNumberOfCallsBetweenClasses & - & $Q_3$ & \texttt{5}  \\ \hline
+                    Inappropriate intimacy & highNumberOfCallsBetweenClasses & - & $Q_3$ & \textit{5}  \\ \hline
                     Brain method & highNumberOfInstructionsForClass & Class: instructions & $Q_3$ & 45  \\ \hline
                     Brain method & highCyclomaticComplexity & Method: complexity & $Q_3$ & 2  \\ \hline
                     God class & veryHighWeightedMethodCount & Class: complexity & $Q_3 + (Q_3 - Q_1)*1.5$ & 6.16844  \\ \hline
-                    Primitive obsession & veryHighPrimitiveVariableUse & - & Q_3 + $(Q_3 - Q_1)*1.5$ & \texttt{6}  \\ \hline
+                    Primitive obsession & veryHighPrimitiveVariableUse & - & Q_3 + $(Q_3 - Q_1)*1.5$ & \textit{6}  \\ \hline
                     Complex class & veryHighClassComplexity & Class: complexity & $Q_3 + (Q_3 - Q_1)*1.5$ & 31.25  \\ \hline
                     Swiss army knife & veryHighNumberOfMethods & Interface: numberOfMethods & $Q_3 + (Q_3 - Q_1)*1.5$ & 3.5 \\ \hline
                 \end{tabular}
@@ -131,35 +131,42 @@ The column \say{Value} shows the final value that was used for \say{Variable} fo
     How do those code smells distribute inside analyzed applications?
 }
 
-\TODO{
-    Need more input here.
-    What should I include here?
-}
-
 Now that we have shown the general information about the analysis process and thresholds, we can finally go over
 the results that we found.
 Figure~\ref{fig:applicaitons_contain_x} shows the how many of the applications actually contain each code smell.
 
+As we can see 29 out of 30 code smells have been detected.
+This means that each implemented code smell has been detected at least once.
+The only code smell missing from the figure~\ref{fig:applicaitons_contain_x} is \say{Missing template method}, which
+has not been detected in any of the analyzed applications.
+
+The rule that has been present in the highest amount of applications is \say{SAPBreaker} which has been
+present in $84\%$ (201) of the applications.
+The least frequent code smell is \say{Parallel inheritance hierarchies} which has been present in only $3\%$ (6) of the applications.
+
 \begin{figure}
-    \includegraphics[scale=0.8]{figures/applications_contains_x_2.png}
+    \includegraphics[scale=0.8]{figures/applications_contains_x_3.png}
     \caption{How many applications contain code smell $X$?}
     \label{fig:applicaitons_contain_x}
 \end{figure}
 
-As one can see, there is a high number of code smells that are present in over $75\%$ of the applications.
+Figure~\ref{fig:distribution}, displays distribution of detected code smells inside analyzed applications.
 
-Figure~\ref{fig:distribution}, shows distribution of detected code smells inside analyzed applications.
+Here we can see that \say{Divergent change} makes up a significant part of the distribution which makes up to
+$28\%$ (30718 detections) of total detected code smells.
+It is followed by the \say{SAPBreakers} with detection rate of $9\%$ (10341) detections and \say{Long method}
+with detection rate of $8.6\%$ (8343 detections).
+
+The least frequent code smells, excluding \say{Missing Template Method} due to the fact that it has 0 detections,
+are the following: \say{Unstable dependencies} with detection rate of $0.9\%$ (109 detections total),
+\say{Parallel inheritance hierarchies} with detection rate of $0.6\%$ (70 detections total) and
+\say{Tradition breaker} with detection rate of $0.1\%$ (17 detections total).
 
 \begin{figure}
-    \includegraphics[scale=0.8]{figures/distribution_2.png}
+    \includegraphics[scale=0.8]{figures/distribution_3.png}
     \caption{Distribution of code smells inside the analyzed applications.}
     \label{fig:distribution}
 \end{figure}
 
 \FloatBarrier
-
-\TODO{
-    Comments make up a big part of distribution.
-    Perhaps we should make a separate figure without comments included?
-}
 
