@@ -1,0 +1,29 @@
+Source,smell,value
+Understanding Code Smells in Android Applications,Data class,0.175
+Sonar Java Academic Plugin,Data class,0.01478549945
+Understanding Code Smells in Android Applications,Data clump,0.155
+Sonar Java Academic Plugin,Data clump,0.05325312648
+Understanding Code Smells in Android Applications,Cyclic dependencies,0.125
+Sonar Java Academic Plugin,Cyclic dependencies,0.005429792623
+Understanding Code Smells in Android Applications,Feaute envy,0.095
+Sonar Java Academic Plugin,Feaute envy,0.1269273389
+Understanding Code Smells in Android Applications,SAPBreaker,0.09
+Sonar Java Academic Plugin,SAPBreaker,0.163701124
+Understanding Code Smells in Android Applications,God class,0.055
+Sonar Java Academic Plugin,God class,0.03074244103
+Understanding Code Smells in Android Applications,Divergent change,0.04
+Sonar Java Academic Plugin,Divergent change,0.4862751306
+Understanding Code Smells in Android Applications,Message chains,0.025
+Sonar Java Academic Plugin,Message chains,0.01242678487
+Understanding Code Smells in Android Applications,Intensive coupling,0.024
+Sonar Java Academic Plugin,Intensive coupling,0.05062529682
+Understanding Code Smells in Android Applications,Tradition breaker,0.02
+Sonar Java Academic Plugin,Tradition breaker,0.0002691150863
+Understanding Code Smells in Android Applications,Unstable dependencies,0.0175
+Sonar Java Academic Plugin,Unstable dependencies,0.001725502612
+Understanding Code Smells in Android Applications,Refused bequest,0.015
+Sonar Java Academic Plugin,Refused bequest,0.005049865442
+Understanding Code Smells in Android Applications,Blob class,0.01
+Sonar Java Academic Plugin,Blob class,0.006617065063
+Understanding Code Smells in Android Applications,Shotgun surgery,0.005
+Sonar Java Academic Plugin,Shotgun surgery,0.04217191705
