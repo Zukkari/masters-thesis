@@ -232,7 +232,32 @@ In the next subsections, we will go over the ways how each of the focus groups c
     and rule description and "ideas" on how to fix the bug in the rule description.
 }
 
+Developers are our main target group.
+SonarQube also has an ability to be integrated into the IDE and be used from there.
+Unfortunately, this requires the premium edition (paid) of SonarQube and we only have access to the community edition (free)
+so we are not able to show the screenshots from the IDE\@.
+Nonetheless, full information is available on the server side after the analysis has been run in the CI/CD environment.
+Figure~\ref{fig:dev_1} shows the information that developer sees when a code smell is reported on the Sonar server side.
+In the picture we can see the message that was reported by the static analyzer, when it was first introduced,
+the line it occurs on, what is the type of the reported issue (in our case it is \say{code smell}) and severity of the detection.
 
+\begin{figure}
+    \includegraphics[scale=0.5]{figures/dev_1.png}
+    \caption{Example of a reported issue on the server side.}
+    \label{fig:dev_1}
+\end{figure}
+
+Additionally, developer has an option to press the \say{See rule} button.
+When opened, this view shows the description of the reported code smell, as it can be seen in figure~\ref{fig:dev_2}.
+This allows the developers to quickly access rule definitions in order to see compliant and non-compliant rule examples.
+
+\begin{figure}
+    \includegraphics[scale=0.25]{figures/dev_2.png}
+    \caption{Example of expanded rule description.}
+    \label{fig:dev_2}
+\end{figure}
+
+\FloatBarrier
 
 \subsubsection{Project managers}
 
