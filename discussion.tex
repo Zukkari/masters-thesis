@@ -268,6 +268,31 @@ This allows the developers to quickly access rule definitions in order to see co
     Here we can show general view of the project (the dashboard).
 }
 
+As mentioned in the previous section, it is possible to integrate the plugin into the IDE.
+However, not all the roles in software development are related to coding.
+SonarQube provides a nice user interface, that can be useful for project managers to receive an overview of a project,
+as seen in figure~\ref{fig:spm_1}.
+On this figure we can see different metrics that are helpful to identify the state of the project.
+For example, number of bugs, vulnerabilities and code smells detected during static code analysis.
+
+\begin{figure}
+    \includegraphics[scale=0.35]{figures/project_managers_1.png}
+    \caption{Example of a project overview in the SonarQube user interface.}
+    \label{fig:spm_1}
+\end{figure}
+
+The view of figure~\ref{fig:spm_1} can be further expanded in order to see more detailed overview of detected
+code smells/vulnerabilities as it can be seen in figure~\ref{fig:spm_2}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{figures/pm_2_1.png}
+    \caption{Example of code smell detections grouped by rule.}
+    \label{fig:spm_2}
+\end{figure}
+
+\FloatBarrier
+
 \subsubsection{Data scientists}
 
 \TODO{
@@ -276,3 +301,15 @@ This allows the developers to quickly access rule definitions in order to see co
     Perhaps we can describe here how we did this, and what we managed to create (e.g. analysis results).
     With this, they can perhaps find correlations if different code smells can be usually found together.
 }
+
+In the era of big data, a lot of useful information can be extracted from the collected data.
+Static code analysis is not an exception.
+If an organization maintains multiple projects in a SonarQube instance, the data from the static
+analysis could be used to find correlations between different code smells in multiple projects.
+This could show some trends where certain code smells are popular in multiple teams and could
+lead to introduction of new rules in order to fix the code quality issues.
+
+SonarQube provides a rich set of web services that can be used to extract the data into external applications.
+The base URI \url{/api/webservices/list} provides description of all webservices exposed by the current SonarQube instance.
+For example, the API can be used to export the issues found in the project for further analysis.
+In order to achieve this, one would use the \url{/api/issues/search} endpoint in order to search for issues inside the projects.
