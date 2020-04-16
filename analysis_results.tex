@@ -7,12 +7,12 @@
 
 As the result, 240 applications were successfully analyzed.
 This number is vastly different from the total amount of applications (1509) that are present in the corpus for multiple reasons.
-Firstly, some of the projects were not using a build system (Gradle or Maven).
-This is an issue because to compile the project we would need to specify the Classpath manually and
+Firstly, some projects were not using a build system (Gradle or Maven).
+This is an issue because to compile the project we would need to specify the classpath manually and
 this is quite difficult to do programmatically.
 Moreover, even if we managed to compile the projects, SonarQube is provided as a plugin for the build systems which means
 that we would still not be able to run the analysis.
-Secondly, some of the projects required extra configuration before building, which is also not possible to do
+Secondly, some projects required extra configuration before building, which is also not possible to do
 programmatically because each project is different and requires manual configuration.
 
 The analysis was performed on a machine with \verb|Intel(R) Core(TM) i5-8250U CPU| \\ \verb|@ 1.60GHz| and 16GB of RAM\@.
@@ -39,7 +39,7 @@ In section~\ref{subsec:analysis-procedure} we mentioned collecting the threshold
 The main idea for calculating the thresholds for the corpus is that this way we can reduce
 the amount of false-positive detections and only detect the cases where the presence of the code smell is evident.
 
-Table~\ref{threshold_calculation_table} shows the statistics that were used to calculate the thresholds for the
+Table~\ref{threshold_calculation_table} shows the statistics that were used to calculate the thresholds for the rules.
 The first column shows the node type which was used to calculate the attribute.
 The second columns displays the attribute name that was calculated for the specific node.
 Columns $Q_1$, $Q_2$ and $Q_3$ display different quartiles for the collected values.
