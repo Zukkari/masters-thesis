@@ -120,21 +120,24 @@ dataset, since we were analyzing applications for the Android platform.
     \begin{center}
         \begin{tabular} {| c | c |}
             \hline
-            \textbf{Code smell name} & \textbf{Value inside of the distribution} \\ \hline
-            Data class & 0.175 \\ \hline
-            Data clump & 0.155 \\ \hline
-            Cyclic dependencies & 0.125 \\ \hline
-            Feature envy & 0.095 \\ \hline
-            SAPBreaker & 0.09 \\ \hline
-            God class & 0.055 \\ \hline
-            Divergent change & 0.04 \\ \hline
-            Message chains & 0.025 \\ \hline
-            Intensive coupling & 0.024 \\ \hline
-            Tradition breaker & 0.02 \\ \hline
-            Unstable dependencies & 0.0175 \\ \hline
-            Refused bequest & 0.015 \\ \hline
-            Blob class & 0.01 \\ \hline
-            Shotgun surgery & 0.005 \\ \hline
+            \textbf{Code smell name} & \textbf{Percentage of occurrence (\%)} \\ \hline
+            Data class & 18 \\ \hline
+            Data clump & 15.5 \\ \hline
+            Cyclic dependencies & 13 \\ \hline
+            Feature envy & 9.5 \\ \hline
+            External duplication & 9 \\ \hline
+            SAPBreaker & 9 \\ \hline
+            God class & 5.5 \\ \hline
+            Sibling duplication & 4.5 \\ \hline
+            Divergent change & 4 \\ \hline
+            Message chains & 2.5 \\ \hline
+            Intensive coupling & 2.4 \\ \hline
+            Tradition breaker & 2 \\ \hline
+            Unstable dependencies & 1.75 \\ \hline
+            Refused bequest & 1.5 \\ \hline
+            Blob class & 1 \\ \hline
+            Shotgun surgery & 0.5 \\ \hline
+            Internal duplication & 0.25 \\ \hline
         \end{tabular}
         \caption{Distribution of detected code smells from~\cite{mannan2016understanding}.}
         \label{tab:understading_andoid_smells_values}
@@ -150,21 +153,21 @@ are present in~\cite{mannan2016understanding}).
     \begin{center}
         \begin{tabular} {| c | c |}
             \hline
-            \textbf{Code smell name} & \textbf{Value inside of the distribution} \\ \hline
-            Data class & 0.0147854994 \\ \hline
-            Data clump & 0.0532531265 \\ \hline
-            Cyclic dependencies & 0.0054297926 \\ \hline
-            Feature envy & 0.1269273389 \\ \hline
-            SAPBreaker & 0.1637011240 \\ \hline
-            God class & 0.0307424410 \\ \hline
-            Divergent change & 0.4862751306 \\ \hline
-            Message chains & 0.0124267849 \\ \hline
-            Intensive coupling & 0.0506252968 \\ \hline
-            Tradition breaker & 0.0002691151 \\ \hline
-            Unstable dependencies & 0.0017255026 \\ \hline
-            Refused bequest & 0.0050498654 \\ \hline
-            Blob class & 0.0066170651 \\ \hline
-            Shotgun surgery & 0.0421719171 \\ \hline
+            \textbf{Code smell name} & \textbf{Percentage of the occurrence (\%)} \\ \hline
+            Data class & 14.7854994 \\ \hline
+            Data clump & 5.32531265 \\ \hline
+            Cyclic dependencies & 0.54297926 \\ \hline
+            Feature envy & 12.69273389 \\ \hline
+            SAPBreaker & 16.37011240 \\ \hline
+            God class & 3.07424410 \\ \hline
+            Divergent change & 48.62751306 \\ \hline
+            Message chains & 1.24267849 \\ \hline
+            Intensive coupling & 5.06252968 \\ \hline
+            Tradition breaker & 0.02691151 \\ \hline
+            Unstable dependencies & 0.17255026 \\ \hline
+            Refused bequest & 0.50498654 \\ \hline
+            Blob class & 0.66170651 \\ \hline
+            Shotgun surgery & 4.21719171 \\ \hline
         \end{tabular}
         \caption{Distribution of selected code smells for this paper.}
         \label{tab:sonar_academic_plugin_values}
@@ -172,6 +175,13 @@ are present in~\cite{mannan2016understanding}).
 \end{table}
 
 Comparison of distributions of both papers can be seen in figure~\ref{fig:comparison_of_distributions}.
+It is important to note that we left some of the code smells out of the comparison.
+The reason is that we did not implement those rules in our plugin, as those are already natively
+supported by SonarQube.
+The rules that we excluded from the comparison are \say{external duplication}, \say{sibling duplication} and
+\say{internal duplication}.
+
+
 From this comparison we can see that the number of detections for some code smells is pretty similar and quite different for others.
 For instance, the number of detections for \say{blob class} and \say{feature envy} is pretty similar, while
 \say{data class} and \say{divergent change} are quite different.
@@ -194,7 +204,7 @@ some occasions than others.
 \end{flushleft}
 
 \begin{figure} [htb]
-    \includegraphics[scale=0.8]{comparison.png}
+    \includegraphics[scale=0.8]{figures/comparison.png}
     \caption{Distribution of detected code smells in our paper versus~\cite{mannan2016understanding}.}
     \label{fig:comparison_of_distributions}
 \end{figure}
