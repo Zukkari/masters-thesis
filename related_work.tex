@@ -1,0 +1,89 @@
+\subsubsection{Tool ``inFusion''}\label{subsec:toolsay}
+
+In~\cite{mannan2016understanding}, \citeauthor{mannan2016understanding} used a tool called \say{inFusion} to analyze a large
+corpus of Android and Java desktop applications.
+The corpus that authors of~\cite{mannan2016understanding} used consisted of 750 open-source Java applications and 500 Android projects including in total over 22 million lines of code.
+According to \citeauthor{mannan2016understanding}, the tool was chosen for multiple reasons.
+Firstly, it can detect all the code smells defined by Martin Fowler in~\cite{refactoring-fowler}.
+Secondly, this tool has a very high precision (84\%) and recall (100\%) rate (and also F-measure of 91.3\%) according to~\cite{ahmed2015empirical}.
+Thirdly, according to the authors of the research, this tool scales to analyzing large applications.
+Finally, the tool used to be popular among researchers during the conduction of this study.
+
+The main issue with this tool is that it used to be commercial and is no longer available nowadays.
+Due to the tool not being available, we are not able to check the exact code definitions used by it and thus, we cannot
+easily replicate the results that were achieved in~\cite{mannan2016understanding}.
+
+Additionally, since the tool was commercial, it would be highly unlikely that the users of the software would
+be able to define their code smells to extend the definitions provided by the software vendor.
+
+\subsubsection{Tool ``paprika''}
+
+Paprika is a tool developed by \citeauthor{paprika-paper} in~\cite{paprika-paper}.
+This tool analyzes APK files, which is the format in which Android applications are distributed.
+One important issue is that this tool analyzes compiled artifacts of the application and not its source code.
+It is also worth mentioning that Android applications run on Dalvik virtual machines and not on Java virtual machines.
+This is crucial because it is mentioned in~\cite{paprika-paper} the bytecode for those virtual machines
+are different and during decoding from one bytecode to another, some information is lost.
+This step is required in order to actual Java code representation because some of the code smells
+may have been introduced during the compilation process by the compiler and we would like to avoid those.
+Losing information during bytecode conversion and code obfuscation together produce quite significant information loss.
+
+According to~\citeauthor{paprika-paper}, paprika analysis consists of four steps.
+First, various metrics are extracted from the artifact of the application such as the application name and/or packages.
+Paprika builds a model with the following attributes: \texttt{App}, \texttt{Class}, \texttt{Method}, \texttt{Attribute},
+\texttt{Variable}, \texttt{ExternalClass}, \texttt{ExternalMethod}.
+These entities are linked between each other via different relations to produce a meaningful model that can be
+analyzed later.
+It is also worth mentioning that the model is built incrementally using the SOOT framework as described in~\cite{paprika-paper}.
+
+Secondly, the existing Paprika model has to be converted into a graph model.
+~\citeauthor{paprika-paper} used a graph database to achieve this.
+They chose \citet{neo4j} as a database implementation because \citet{neo4j} combined with
+Cypher provides great performance for Java applications and can satisfy scalability requirements.
+
+Next, anti-patterns in the code are detected using graph queries.
+As mentioned before, the Cypher query language is used to query the database and detect anti-patterns.
+Paprika detects the following code smells and anti-patterns: long method, complex class, member ignoring method,
+leaking inner class, UI overdraw, heavy broadcast receivers.
+The exact code definitions and more detailed descriptions can be found in~\cite{paprika-paper}.
+
+Finally, the software quality score is computed.
+According to \citeauthor{paprika-paper}, the score is based on the number of anti-patterns detected.
+This score is computed for multiple versions of the same application to see how the number of code smells changes with the evolution
+of the application.
+
+To sum up, we can see that this application is built to analyze applications at scale, but it is only limited
+to Android applications.
+Another disadvantage is that the number of code smells supported is quite small.
+
+\subsubsection{SonarQube plugin ``Anti patterns code smells''}
+
+In~\cite{mannan2016understanding,paprika-paper}, the authors present standalone tools that
+were developed from scratch.
+In~\cite{sonar-plugin-external}, a plugin for SonarQube has been developed that can detect 19 code and 4
+architectural smells.
+
+SonarQube is one of the largest ecosystems that perform static code analysis for a wide variety of languages.
+The framework comes with a large number of predefined code smells that are very common in the industry.
+In addition, SonarQube also provides a custom API that allows developers to define their own code smells without
+the need of writing the code analysis framework from scratch.
+SonarQube is open-source, has been in development since 2006 and has over 29,000 commits in its Github repository\cite{sonar-repo}.
+Therefore, we can say that this framework is pretty mature.
+Furthermore, SonarQube is also one of the most popular tools in industry to perform static code analysis.
+
+Internally the \say{Anti patterns code smells} plugin uses \texttt{DECOR} tool to the detect code smells.
+According to~\citeauthor{sonar-plugin-external}, \texttt{DECOR} has 100\% recall rate as well as 80\% precision
+for the detection of code smells.
+The plugin is able to detect the following code smells: \say{anti-singleton}, \say{base class knows derived class},
+\say{base class should be abstract}, \say{blob}, \say{class data should be private}, \say{complex class},
+\say{duplicated code}, \say{functional decomposition}, \say{large class}, \say{lazy class},
+\say{long method}, \say{long parameter list}, \say{many field attributes but not complex},
+\say{message chains}, \say{refused parent bequest}, \say{spaghetti code}, \say{swiss army knife} and
+\say{tradition breaker}.
+The plugin is also able to detect the following architectural code smells:
+\say{unstable dependency}, \say{hub-like dependency}, \say{cyclic dependency},
+\say{multiple architectural smells}.
+The exact code smell definitions and descriptions can be found in the original paper~\cite{sonar-plugin-external}.
+
+According to~\citeauthor{sonar-plugin-external}, the plugin was able to analyze 103 projects in 35 days
+from the Qualitas Corpus Repository~\cite{qualitas-corpus} on a Linux machine with 4 core and 16GB of RAM\@.
