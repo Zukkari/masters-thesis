@@ -1,0 +1,66 @@
+
+\TODO{
+    Describe code smells in general, what are they, how were they found at first.
+}
+
+In the era of agile software development, the quality of the code produced by developers plays a very important role.
+It is crucial because developers have to be able to change the code quickly due to evolving business requirements.
+However, due to time constraints and constant changes in the codebase, the code may become less maintainable.
+Often developers make changes that allow them to implement the current requirements quickly, but if the requirements
+change in the future, they would have to refactor large portions of code that they developed earlier.
+Applying solutions that may cause future code refactoring is called technical debt~\cite{technical-debt}.
+
+
+\TODO{
+    Describe how to fix code smells.
+    Describe why would you want to fix them.
+}
+
+Often technical debt comes in pieces that can be universally unified into recognizable patterns.
+Such technical debt patterns that can be applied to most software applications are called code smells.
+According to~\cite{code-smell-definition}, code smells are symptoms of poor design and implementation choices, which
+lead to increased fault-proneness and, eventually, decrease software maintainability.
+Decreased maintainability leads to costs when implementing new features or making changes to existing ones.
+
+Since code smells come in patterns that can be recognized by humans, we could also teach machines to recognize those
+patterns in the code that humans write.
+The software that can perform static code analysis to recognize code smells and problematic patterns in the code
+is called a static analyzer.
+A static analyzer performs an analysis of the code without actually executing it~\cite{static-analyzers-paper}.
+
+\TODO{
+    Bring some examples from the Fowler's list and then also describe
+    those that we have implemented.
+}
+
+\citeauthor{refactoring-fowler} describes various code smells in his book~\cite{refactoring-fowler}.
+The book describes 22 code smells and discusses how the code smells can be fixed by applying different
+patterns.
+Let's look into some examples of the code smells defined by~\citeauthor{refactoring-fowler}.
+
+\begin{flushleft}
+    \textbf{Data class} –- a class which only contains data and no business logic that interacts
+    with the data.
+    The class usually contains only public fields or private fields that only have getters and setters.
+\end{flushleft}
+
+\begin{flushleft}
+    \textbf{Cyclic dependencies} -- classes that depend on each other.
+    This is an issue because this makes dependency injection impossible, due to the fact that dependency graph forms
+    a cycle, and it is not possible to determine which class should be instantiated first.
+    Dependencies should be representable as an acyclic graph as defined by~\citeauthor{refactoring-fowler}.
+\end{flushleft}
+
+\begin{flushleft}
+    \textbf{Feature envy} -- code smell where a class is interested in the data of the other classes
+    more than its own data.
+    Usually occurs when a class gets the data externally and tries to compute some value.
+    Such approach goes against OOP principles, which require that a class should use its internal state to compute the values.
+\end{flushleft}
+
+\TODO{
+    Mention that all the code smells are in the appendix.
+}
+
+In this paper, we implemented the code smells defined by~\citeauthor{refactoring-fowler}.
+The full list of implemented code smells can be found in the appendix~\ref{subsec:implemented-code-smells}.

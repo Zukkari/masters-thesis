@@ -396,17 +396,8 @@
     \section{Background}\label{sec:background}
 
     \subsection{Code smells}\label{subsec:code-smells}
-    \TODO{
-        Describe code smells in general, what are they, how were they found at first.
-        Describe how to fix code smells.
-        Describe why would you want to fix them.
 
-        Add all of the implemented code smells into appendix, here we should bring some examples
-        about the code smells.
-
-        Bring some examples from the Fowler's list and then also describe
-        those that we have implemented.
-    }
+    \input{code_smells.tex}
 
     \subsection{Related work}\label{subsec:related-work}
 
@@ -498,6 +489,37 @@
 
     \section*{I. Glossary}
     \addcontentsline{toc}{subsection}{I. Glossary}
+
+    \subsection{Implemented code smells}\label{subsec:implemented-code-smells}
+
+    \begin{enumerate}
+        \item Data class
+        \item Message chain
+        \item Long method
+        \item Switch statement
+        \item Shotgun surgery
+        \item Lazy class
+        \item Blob class
+        \item Refused bequest
+        \item Comments
+        \item Cyclic dependencies
+        \item Tradition breaker
+        \item Divergent change
+        \item Feature envy
+        \item Data clump
+        \item Parallel inheritance hierarchies
+        \item Speculative generality (methods)
+        \item Speculative generality (interfaces)
+        \item Middle man
+        \item Primitive obsession
+        \item Brain method
+        \item Inappropriate intimacy
+        \item Swiss army knife
+        \item Missing template method
+        \item Unstable dependencies
+        \item Stable abstraction breaker
+        \item Complex class
+    \end{enumerate}
 
     \newpage
 
