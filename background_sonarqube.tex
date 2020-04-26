@@ -1,0 +1,58 @@
+SonarQube~\cite{sonar} is a platform that automates the process of code reviewing in order to detect code smells,
+bugs and vulnerabilities in the source code.
+
+SonarQube is often used as a stage in the CI/CD pipeline which sets a \textit{quality gate} for the developers.
+Quality gate consists of \textit{rules} which are defined by the \textit{profile}.
+A rule is a definition which describes a certain pattern in the source code (such as code smell, bug or a vulnerability) which
+must be avoided as it might cause maintainability issues or introduce new bugs and vulnerabilities.
+The set of rules that is used for a project can be configured individually for each project.
+
+There are multiple reasons why we chose SonarQube as an implementation platform.
+Firstly, SonarQube is one of the largest ecosystems that perform static code analysis for a wide variety of languages.
+The framework comes with numerous predefined code smells that are very common in the industry.
+SonarQube is open-source, has been in development since 2006 and has over 29,000 commits in its Github repository\cite{sonar-repo}.
+Therefore, we can say that this framework is pretty mature.
+Furthermore, SonarQube is also one of the most popular tools in industry to perform static code analysis.
+
+In addition, SonarQube also provides a custom API that allows developers to define their own code smells without
+the need of writing the code analysis framework from scratch.
+The most common way to extend SonarQube is to develop a plugin which relies on the SonarQube API\@.
+In~\cite{sonar_plugin_tutorial}, a comprehensive guide is provided by the SonarQube community which explains how to create
+a SonarQube plugin that analyzes source code written in Java.
+
+In short, writing a plugin for SonarQube consists of the following steps:
+
+\begin{flushleft}
+    \textbf{Define the rules} -- define a set of rules and implement them using the SonarQube API\@.
+    A rule operates on the abstract syntax tree of the program a marks all the tree nodes where it finds
+    an issue.
+\end{flushleft}
+
+\begin{flushleft}
+    \textbf{Create rule loader} -- create a mechanism that will load the plugins and prepare them for the analysis
+    execution.
+    This usually includes loading descriptions of the rules into memory and registering them with SonarQube.
+    Registration allows SonarQube to include the rules in the UI, which in turn allows the end user to enable/disable
+    specific rules based on his/her preferences.
+\end{flushleft}
+
+\begin{flushleft}
+    \textbf{Test the implementation} -- write unit tests using Sonar testing framework to verify that the
+    plugin actually detects the correct patterns in the code.
+\end{flushleft}
+
+\begin{flushleft}
+    \textbf{Deploy the plugin} -- install the plugin to the SonarQube instance.
+    This allows the users to run the plugin rules on actual projects in order to detect issues in their source code.
+\end{flushleft}
+
+Finally, after all the aforementioned steps have been completed, the user can enable the rules and run static analysis.
+
+Previously we mentioned that SonarQube is often used as a step during CI/CD pipeline.
+As reader might know, this is quite late in the development process, and it would be much more beneficial if the issues
+would be discovered earlier.
+Fortunately, SonarQube provides a solution called SonarLint~\cite{sonarlint}.
+SonarLint is an extension for integrated development environment (IDE), which can be synchronized with an instance of SonarQube in order to provide
+real-time analysis of the code.
+This allows the developers to see and fix the issues before their run and commit their code, which greatly
+speeds up the development process.

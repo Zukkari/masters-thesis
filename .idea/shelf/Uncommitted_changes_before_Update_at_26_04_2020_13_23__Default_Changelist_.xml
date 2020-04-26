@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_26_04_2020_13_23_[Default_Changelist]" date="1587896621954" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_04_2020_13_23_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 26.04.2020 13:23 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/sonarlint/issuestore/f/7/f78c491a01c861d66c52e0e3f74f7334ea2c3068" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/sonarlint/issuestore/2/d/2d81cdb334463120496ec33bf329715998062f10" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value=".idea/sonarlint/issuestore/index.pb" />
+    <option name="AFTER_PATH" value=".idea/sonarlint/issuestore/index.pb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_04_2020_13_23_[Default_Changelist]/index.pb" />
+  </binary>
+</changelist>
