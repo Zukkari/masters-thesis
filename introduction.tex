@@ -16,20 +16,27 @@ compared our results to already published results in~\cite{mannan2016understandi
 
 \subsection{Research motivation}\label{subsec:research-motivation}
 
-\TODO{
-Describe why solution proposed in this thesis is useful.
-Goals of the thesis:
-\begin{itemize}
-    \item Develop a tool, describe why it would be useful from different perspectives (developers, project managers, data scientists)
-    \item Extend the body of knowledge about the occurrence of code smells in Android applications (extend the number of code smells,
-    provide analysis results, compare the results with with already published results, additional results for code smells not
-    yet published in the literature)
-\end{itemize}
-}
+From the industry perspective, we wanted to develop a tool that would assist different roles in software development process.
+The main focus are the developers, can receive real-time feedback about the quality of the code that they produce.
+The project managers can have an overview of the project status and knowledge of any potential vulnerabilities, bugs
+or code smells.
+The data scientist could look into correlations between various code smells and their occurrences.
+
+From the academic perspective, we wanted to extend the body of knowledge about the occurrence of code smells in Android
+applications by extending the number of detected code smells, providing analysis results and then comparing them against
+results published in the literature.
+Additionally, we wanted to provide an overview of code smells occurrences for the code smells not yet published by the
+literature.
 
 \subsection{Thesis outline}\label{subsec:thesis-outline}
 
-\TODO{
-Shortly describe structure of the thesis.
-What does each chapter tell the reader?
-}
+The paper consists of 4 main sections.
+Section~\ref{sec:background} provides an introduction to code smells, reviews state of the art implementations
+of other static code analyzers and gives an overview of our implementation platform.
+Section~\ref{sec:method} describes the developed tool, tools used for the development, and also walks through
+the process of the tool verification procedure.
+Section~\ref{sec:results} talks about the results of the paper: the developed tool and the results that we found
+during the analysis of the applications.
+Section~\ref{sec:discussion} discusses the results of the analysis, compares our results with already published results and
+discusses issues and limitations of our tool.
+Furthermore, we discuss potential usages of the tool for various roles in the software development process.
