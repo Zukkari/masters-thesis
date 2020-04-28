@@ -95,7 +95,6 @@
 \usepackage{xspace} % Non-eatable spaces in macros
 
 % Including graphical images and setting the figure directory
-\usepackage{graphicx}
 \graphicspath{{figures/}}
 
 % Packages for getting clickable links in PDF file
@@ -184,10 +183,6 @@
 \usepackage{proof}
 \usepackage{semantic}
 \usepackage[numbers]{natbib}
-\usepackage{graphicx}
-\usepackage{graphicx}
-\usepackage{graphicx}
-\usepackage{graphicx}
 \usepackage{graphicx}
 \setlength{\inferLineSkip}{4pt}
 \def\predicatebegin #1\predicateend{$\Gamma \vdash #1$}
@@ -291,19 +286,23 @@
         \noindent\textbf{Abstract:}
 
         \noindent
-        \TODO{
-            Write abstract text here
-        }
+        In recent years, quality code behind the presentation layer has become increasingly important since a high number of applications are in maintenance mode.
+        Maintaining complex applications is hard and modifying code that is difficult to understand may introduce new bugs.
+        Poor design or implementation choices that contribute to technical debt are called code smells.
+        Static analyzers are tools used to detect code smells and other vulnerabilities inside software applications.
+        In this paper, we analyze static analysis tools and also develop our tool, which tries to overcome the problems
+        of the previous tools by providing more code smells detection rules.
+        As a result, we developed a plugin for SonarQube plugin that analyzes applications written in Java programming language.
+        Finally, we verified our tool by performing an empirical study on a selected corpus of applications.
 
         \vspace*{1ex}
 
         \noindent\textbf{Keywords:}\\
-        \TODO{List of keywords}
-%Layout, formatting, template
+        Static code analyzer, Code smells, Android, SonarQube
 
         \vspace*{1ex}
 
-        \noindent\textbf{CERCS:}\TODO{CERCS code and name:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+        \noindent\textbf{CERCS:} P170 Computer science, numerical analysis, systems, control
 
         \vspace*{1ex}
     }}%\newcommand\EngInfo
@@ -317,43 +316,29 @@
 
         \noindent\textbf{Lühikokkuvõte:}
 
-%\noindent ...
-
-        \TODO{One or two sentences providing a basic introduction to the field, comprehensible to a scientist in
-        any discipline.}
-        \TODO{Two to three sentences of
-        more detailed background, comprehensible to scientists in related disciplines.}
-        \TODO{One sentence clearly stating the general problem being addressed by this particular
-        study.}
-        \TODO{One sentence summarising the main result (with the words ``here we show´´ or their equivalent).}
-        \TODO{Two or three sentences explaining what
-        the main result reveals in direct
-        comparison to what was thought to be the case previously, or how the main result adds to previous knowledge.}
-        \TODO{One or two sentences to put the results into a more general context.}
-        \TODO{Two or three sentences to provide a
-        broader perspective, readily
-        comprehensible to a scientist in any
-        discipline, may be included in the first paragraph
-        if the editor considers that the accessibility of
-        the paper is significantly enhanced by their inclusion.}
+        \noident
+        \TODO{
+            Fill Estonian abstract once we verify this abstract is OK.
+        }
 
         \vspace*{1ex}
 
         \noindent\textbf{Võtmesõnad:}\\
-        \TODO{List of keywords}
-%Layout, formatting, template
+        Staatiline koodi analüüs, koodilõhn, Android, SonarQube
 
         \vspace*{1ex}
 
-        \noindent\textbf{CERCS:}\TODO{CERCS kood ja nimetus:~\url{https://www.etis.ee/Portal/Classifiers/Details/d3717f7b-bec8-4cd9-8ea4-c89cd56ca46e}}
+        \noindent\textbf{CERCS:} P170 Arvutiteadus, arvutusmeetodid, süsteemid, juhtimine (automaatjuhtimisteooria)
 
         \vspace*{1ex}
     }}%\newcommand\EstInfo
 
 
 %=== Determine the order of languages on Info page
-    \iflanguage{english}{\EngInfo}{\EstInfo}
-    \iflanguage{estonian}{\EngInfo}{\EstInfo}
+    \EngInfo
+
+    \newpage
+    \EstInfo
 
 
     \newpage
