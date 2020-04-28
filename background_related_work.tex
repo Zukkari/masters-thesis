@@ -22,13 +22,12 @@ Paprika is a tool developed by \citeauthor{paprika-paper} in~\cite{paprika-paper
 This tool analyzes APK files, which is the format in which Android applications are distributed.
 One important issue is that this tool analyzes compiled artifacts of the application and not its source code.
 It is also worth mentioning that Android applications run on Dalvik virtual machines and not on Java virtual machines.
-This is crucial because it is mentioned in~\cite{paprika-paper} the bytecode for those virtual machines
-are different and during decoding from one bytecode to another, some information is lost.
-This step is required in order to actual Java code representation because some of the code smells
+This is crucial because it is mentioned in~\cite{paprika-paper} the bytecode for those virtual machines is different and during decoding from one bytecode to another, some information is lost.
+This step is required to actual Java code representation because some of the code smells
 may have been introduced during the compilation process by the compiler and we would like to avoid those.
 Losing information during bytecode conversion and code obfuscation together produce quite significant information loss.
 
-According to~\citeauthor{paprika-paper}, paprika analysis consists of four steps.
+According to~\citeauthor{paprika-paper}, the paprika analysis consists of four steps.
 First, various metrics are extracted from the artifact of the application such as the application name and/or packages.
 Paprika builds a model with the following attributes: \texttt{App}, \texttt{Class}, \texttt{Method}, \texttt{Attribute},
 \texttt{Variable}, \texttt{ExternalClass}, \texttt{ExternalMethod}.

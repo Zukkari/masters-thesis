@@ -1,6 +1,3 @@
-\TODO{
-    In section we go over exact steps that we performed when analyzing the applications.
-}
 
 Once the tool has been implemented and tested internally, we needed to evaluate it on some kind of corpus.
 As mentioned previously in section~\ref{subsec:datasets}, we had already selected the dataset, so we then proceeded with
@@ -17,7 +14,7 @@ The analysis procedure consisted of the following steps:
     \item Perform the analysis of the data using R
 \end{enumerate}
 
-As a first step in the analysis we needed to create a local copy of the source code in order to analyze it.
+As a first step in the analysis, we needed to create a local copy of the source code to analyze it.
 Since the corpus provides direct links to the git repositories, each repository could be fairly easily cloned
 using \verb|git clone| command.
 
@@ -25,30 +22,26 @@ Next, we needed to identify which build system the project uses.
 SonarQube supports Gradle~\cite{gradle} and Maven~\cite{maven} build systems.
 This step was fairly straight forward, we needed to check which file is present in the cloned project
 directory.
-For Gradle projects, we checked if file named \verb|build.gradle| was present in the directory tree of the project.
-For Maven projects, we checked if file named \verb|pom.xml|was present in the directory tree of the project.
-If none of aforementioned files were present, this meant that the project could not be build and analyzed and thus
+For Gradle projects, we checked if a file named \verb|build.gradle| was present in the directory tree of the project.
+For Maven projects, we checked if a file named \verb|pom.xml|was present in the directory tree of the project.
+If none of the aforementioned files were present, this meant that the project could not be build and analyzed and thus
 was excluded from the analysis.
 
 After the build system for the project has been identified, we needed to build the projects in order
 to get compiled classes of the projects.
-This might seem like a redundant step, since previously we said that we are performing the analysis of the source
-files of the application, but this is one of the requirements of SonarQube, which needs compiled files in order to
+This might seem like a redundant step since previously we said that we are performing the analysis of the source
+files of the application, but this is one of the requirements of SonarQube, which needs to be compiled files to
 perform the analysis.
 
 Some of the rules (such as \say{Long method} or \say{Blob class}) require thresholds for code smell detection.
-Those thresholds have to be found manually for each analyzed corpus, so that the detections could be as accurate
+Those thresholds have to be found manually for each analyzed corpus so that the detections could be as accurate
 as possible.
 
-\TODO{
-Link to the correct section containing tables here.
-}
-
-Exact thresholds, their values and calculation formulas are presented in section~\ref{sec:results}.
+Exact thresholds, their values, and calculation formulas are presented in section~\ref{sec:results}.
 In terms of the analysis procedure, this meant that we had to run the first iteration of the analysis
-on the projects in order to collect those thresholds.
+on the projects to collect those thresholds.
 
-Once the required data for the thresholds has been gathered, we needed to calculate the values
+Once the required data for the thresholds have been gathered, we needed to calculate the values
 for the thresholds and then update them inside the plugin, so that it would use new values
 when detecting code smells.
 
@@ -58,13 +51,13 @@ This procedure would check the application for each of our rules and then report
 the analysis results would be available inside the SonarQube itself.
 
 Finally, when the applications have been analyzed, we needed to export the results.
-SonarQube provides a REST api, which allowed us to export the results into the format that
+SonarQube provides a REST API, which allowed us to export the results into the format that
 we could further analyze.
-For the purpose of further analysis, we exported the results of the analysis into the CSV file.
+For further analysis, we exported the results of the analysis into the CSV file.
 This allowed us to explore the results of the analysis using $R$ and the results of the result analysis
 can be seen in section~\ref{subsec:analysis-results}.
 
-To the reader it might seem that most of the steps of this procedure can be automated and this would be a correct
+To the reader, it might seem that most of the steps of this procedure can be automated and this would be a correct
 observation.
 Since most of the steps of the analysis could be easily automated, we also created a tool that performed
 most of the steps automatically.

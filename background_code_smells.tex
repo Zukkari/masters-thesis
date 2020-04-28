@@ -24,21 +24,18 @@ patterns.
 Let's look into some examples of the code smells defined by~\citeauthor{refactoring-fowler}.
 
 \begin{flushleft}
-    \textbf{Data class} –- a class which only contains data and no business logic that interacts
-    with the data.
+    \textbf{Data class} –- a class that only contains data and no business logic that interacts with the data.
     The class usually contains only public fields or private fields that only have getters and setters.
 \end{flushleft}
 
 \begin{flushleft}
     \textbf{Cyclic dependencies} -- classes that depend on each other.
-    This is an issue because this makes dependency injection impossible, due to the fact that dependency graph forms
-    a cycle, and it is not possible to determine which class should be instantiated first.
+    This is an issue because this makes dependency injection impossible, since the dependency graph forms a cycle, and it is not possible to determine which class should be instantiated first.
     Dependencies should be representable as an acyclic graph as defined by~\citeauthor{refactoring-fowler}.
 \end{flushleft}
 
 \begin{flushleft}
-    \textbf{Feature envy} -- code smell where a class is interested in the data of the other classes
-    more than its own data.
+    \textbf{Feature envy} -- code smell where a class is interested in the data of the other classes more than its data.
     Usually occurs when a class gets the data externally and tries to compute some value.
     Such approach goes against OOP principles, which require that a class should use its internal state to compute the values.
 \end{flushleft}
