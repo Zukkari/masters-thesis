@@ -1,1 +1,22 @@
 
+In this thesis we developed a static code analyzer for Java applications in a form
+of a plugin for SonarQube plugin.
+Then, we performed the analysis of a corpus of applications and analyzed the results.
+From the results of the analysis, we could see that that tool actually works since it
+detects the code smells that we have defined.
+However, we did not perform an empirical study if the tool actually helps the developers to
+write better code.
+
+We also understand that there might be some limitations with the dataset that we have selected.
+The dataset that we have selected was not previously used for code smell analysis and number of the
+projects that we have successfully analyzed is not that big.
+Nonetheless, this dataset is enough to verify that the our tool is able to analyze the applications and is able
+to do so rather efficiently.
+
+As for the future work, there is still improvement possibilities.
+Firstly, we would like to implement nice descriptions for the code smells.
+This would allow the developers to see compliant and non-compliant code examples in order to grasp
+the idea why a particular code snippet is a code smell.
+Secondly, we would like to implement the integration with the IDE, such as IntelliJ IDEA or Eclipse.
+This would allow the developers to see the code smells from the comfort of their own IDE and would allow
+to detect the code smells during the code writing phase, instead of the compilation time.
