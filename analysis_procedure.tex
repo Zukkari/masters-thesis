@@ -24,13 +24,13 @@ This step was fairly straight forward, we needed to check which file is present 
 directory.
 For Gradle projects, we checked if a file named \verb|build.gradle| was present in the directory tree of the project.
 For Maven projects, we checked if a file named \verb|pom.xml|was present in the directory tree of the project.
-If none of the aforementioned files were present, this meant that the project could not be build and analyzed and thus
+If none of the aforementioned files were present, this meant that the project could not be built and analyzed and thus
 was excluded from the analysis.
 
-After the build system for the project has been identified, we needed to build the projects in order
+After the build system for the project had been identified, we needed to build the projects in order
 to get compiled classes of the projects.
 This might seem like a redundant step since previously we said that we are performing the analysis of the source
-files of the application, but this is one of the requirements of SonarQube, which needs to be compiled files to
+files of the application, but this is one of the requirements of SonarQube, which needs the compiled files to
 perform the analysis.
 
 Some of the rules (such as \say{Long method} or \say{Blob class}) require thresholds for code smell detection.
@@ -45,12 +45,12 @@ Once the required data for the thresholds have been gathered, we needed to calcu
 for the thresholds and then update them inside the plugin, so that it would use new values
 when detecting code smells.
 
-After the thresholds have been updated, we could finally run the analysis of the applications.
+After the thresholds were updated, we could finally run the analysis of the applications.
 This means that we had to run the SonarQube from the command line inside the project directory for each project.
 This procedure would check the application for each of our rules and then report results back to SonarQube so that
 the analysis results would be available inside the SonarQube itself.
 
-Finally, when the applications have been analyzed, we needed to export the results.
+Finally, when the applications were analyzed, we needed to export the results.
 SonarQube provides a REST API, which allowed us to export the results into the format that
 we could further analyze.
 For further analysis, we exported the results of the analysis into the CSV file.

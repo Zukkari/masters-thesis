@@ -2,7 +2,7 @@
 \subsubsection{Implementation}\label{subsec:implementation}
 
 As a result of development, we created a plugin that can detect 26 code smells.
-The resulting implementation contains $X$ classes and 6476 lines of Scala code.
+The resulting implementation contains 119 classes and 6476 lines of Scala code.
 This number includes tests but does not include test resources (Java files that were
 used to test code smell detection).
 
@@ -79,7 +79,7 @@ sensor (\verb|SonarAcademicSensor|).
 
 
 The purpose rules registrar is to load all of the rules, their descriptions and then register
-those rules with the SonarQube so that the rules are could be enabled or disabled by the
+those rules with the SonarQube so that the rules could be enabled or disabled by the
 user in the SonarQube user interface and further be used in the analysis.
 
 
@@ -122,7 +122,7 @@ algorithm that can be seen in algorithm~\ref{alg:translation_algorithm}.
 
 Firstly, we needed to determine the context of the rule, such as if the rule should detect methods, classes, or variables.
 Then, we needed to decide if the rule required could be detected in a single scan of the context.
-For example, if we need to decide whether or not the method has $X$ amount of parameters, we need would need to visit
+For example, if we need to decide whether or not the method has $X$ amount of parameters, we would need to visit
 this single method only a single time and we do not need to know anything about other methods.
 But in some cases, we need to account for other nodes in the tree.
 For example, in \verb|Shotgun Surgery| we need to detect method invocations that can be present in other classes.

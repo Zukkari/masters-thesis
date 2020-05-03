@@ -4,9 +4,8 @@ In~\cite{mannan2016understanding}, \citeauthor{mannan2016understanding} used a t
 corpus of Android and Java desktop applications.
 The corpus that authors of~\cite{mannan2016understanding} used consisted of 750 open-source Java applications and 500 Android projects including in total over 22 million lines of code.
 According to \citeauthor{mannan2016understanding}, the tool was chosen for multiple reasons.
-Firstly, it can detect all the code smells defined by Martin Fowler in~\cite{refactoring-fowler}.
-Secondly, this tool has a very high precision (84\%) and recall (100\%) rate (and also F-measure of 91.3\%) according to~\cite{ahmed2015empirical}.
-Thirdly, according to the authors of the research, this tool scales to analyzing large applications.
+Firstly, this tool has a very high precision (84\%) and recall (100\%) rate (and also F-measure of 91.3\%) according to~\cite{ahmed2015empirical}.
+Secondly, according to the authors of the research, this tool scales to analyzing large applications.
 Finally, the tool used to be popular among researchers during the conduction of this study.
 
 The main issue with this tool is that it used to be commercial and is no longer available nowadays.
@@ -23,6 +22,8 @@ This tool analyzes APK files, which is the format in which Android applications 
 One important issue is that this tool analyzes compiled artifacts of the application and not its source code.
 It is also worth mentioning that Android applications run on Dalvik virtual machines and not on Java virtual machines.
 This is crucial because it is mentioned in~\cite{paprika-paper} the bytecode for those virtual machines is different and during decoding from one bytecode to another, some information is lost.
+\citeauthor{mannan2016understanding} investigated the differences between the analysis of the source code
+and the analysis of the decompiled source code from the \verb|.apk| archive.
 This step is required to actual Java code representation because some of the code smells
 may have been introduced during the compilation process by the compiler and we would like to avoid those.
 Losing information during bytecode conversion and code obfuscation together produce quite significant information loss.
@@ -62,7 +63,7 @@ were developed from scratch.
 In~\cite{sonar-plugin-external}, a plugin for SonarQube has been developed that can detect 19 code and 4
 architectural smells.
 
-Internally the \say{Anti patterns code smells} plugin uses \texttt{DECOR} tool to the detect code smells.
+Internally the \say{Anti patterns code smells} plugin uses \texttt{DECOR} tool to detect code smells.
 According to~\citeauthor{sonar-plugin-external}, \texttt{DECOR} has 100\% recall rate as well as 80\% precision
 for the detection of code smells.
 The plugin is able to detect the following code smells: \say{anti-singleton}, \say{base class knows derived class},

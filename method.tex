@@ -78,7 +78,7 @@ creating an instance of the rule and passing it to the framework, and secondly, 
 contains a code smell that you would like to verify with the rule.
 
 We can see an example of such a test file in figure~\ref{data_class_example}.
-This code snippet contains code that a person writing test would consider a code smell for a particular rule
+This code snippet contains code that a person writing the test would consider a code smell for a particular rule
 and as seen on line 3, we can specify which line the plugin should report by placing a comment on that line in form of line comment:
 \verb|// Noncompliant {{Optional message}}|.
 Then the framework will verify if the plugin reports an issue in the provided code snippet and whether the plugin reported
