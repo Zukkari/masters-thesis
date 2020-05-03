@@ -60,8 +60,8 @@
 
 % Change Babel document elements
 \addto\captionsestonian{%
-    \renewcommand{\refname}{Viidatud kirjandus}%
-    \renewcommand{\appendixname}{Lisad}%
+\renewcommand{\refname}{Viidatud kirjandus}%
+\renewcommand{\appendixname}{Lisad}%
 }
 
 
@@ -146,33 +146,33 @@
 \usepackage{listings}
 \lstset{
 %language=python,                % the language of the code
-    language=Java,
-    basicstyle=\footnotesize,        % the size of the fonts that are used for the code
-    numbers=left,                   % where to put the line-numbers
-    numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
-    numberstyle=\tiny\color{gray},
-    stepnumber=1,                    % the step between two line-numbers. If it's 1, each line
-    % will be numbered
-    numbersep=5pt,                   % how far the line-numbers are from the code
-    backgroundcolor=\color{white},   % choose the background color. You must add \usepackage{color}
-    showspaces=false,                % show spaces adding particular underscores
-    showstringspaces=false,          % underline spaces within strings
-    showtabs=false,                  % show tabs within strings adding particular underscores
-    frame = lines,
-    %frame=single,                   % adds a frame around the code
-    rulecolor=\color{black},           % if not set, the frame-color may be changed on line-breaks within
-    % not-black text (e.g. commens (green here))
-    tabsize=2,                       % sets default tabsize to 2 spaces
-    captionpos=b,                    % sets the caption-position to bottom
-    breaklines=true,                 % sets automatic line breaking
-    breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-    %title=\lstname,                 % show the filename of files included with \lstinputlisting;
-    % also try caption instead of title
-    keywordstyle=\color{blue},       % keyword style
-    commentstyle=\color{dkgreen},    % comment style
-    stringstyle=\color{mauve},       % string literal style
-    escapeinside={\%*}{*)},          % if you want to add a comment within your code
-    morekeywords={*,game, fun}       % if you want to add more keywords to the set
+language=Java,
+basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+numberstyle=\tiny\color{gray},
+stepnumber=1,                    % the step between two line-numbers. If it's 1, each line
+% will be numbered
+numbersep=5pt,                   % how far the line-numbers are from the code
+backgroundcolor=\color{white},   % choose the background color. You must add \usepackage{color}
+showspaces=false,                % show spaces adding particular underscores
+showstringspaces=false,          % underline spaces within strings
+showtabs=false,                  % show tabs within strings adding particular underscores
+frame = lines,
+%frame=single,                   % adds a frame around the code
+rulecolor=\color{black},           % if not set, the frame-color may be changed on line-breaks within
+% not-black text (e.g. commens (green here))
+tabsize=2,                       % sets default tabsize to 2 spaces
+captionpos=b,                    % sets the caption-position to bottom
+breaklines=true,                 % sets automatic line breaking
+breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+%title=\lstname,                 % show the filename of files included with \lstinputlisting;
+% also try caption instead of title
+keywordstyle=\color{blue},       % keyword style
+commentstyle=\color{dkgreen},    % comment style
+stringstyle=\color{mauve},       % string literal style
+escapeinside={\%*}{*)},          % if you want to add a comment within your code
+morekeywords={*,game, fun}       % if you want to add more keywords to the set
 }
 
 
@@ -209,22 +209,22 @@
 %%% BEGIN DOCUMENT
 \begin{document}
 
-%===BEGIN TITLE PAGE
+    %===BEGIN TITLE PAGE
     \thispagestyle{empty}
     \begin{center}
 
         \iflanguage{english}{%
-            \large
-            UNIVERSITY OF TARTU\\%[2mm]
-            Institute of Computer Science\\
-            Computer Science Curriculum\\%[2mm]
+        \large
+        UNIVERSITY OF TARTU\\%[2mm]
+        Institute of Computer Science\\
+        Computer Science Curriculum\\%[2mm]
         }{%
-            TARTU ÜLIKOOL\\
-            Arvutiteaduse instituut\\
-            Informaatika õppekava\\%[2mm]
+        TARTU ÜLIKOOL\\
+        Arvutiteaduse instituut\\
+        Informaatika õppekava\\%[2mm]
         }%\iflanguage
 
-%\vspace*{\stretch{5}}
+        %\vspace*{\stretch{5}}
         \vspace{25mm}
 
         \Large Stanislav Mõškovski
@@ -233,14 +233,15 @@
 
         \huge Building a tool for detecting code smells in Android application code
 
-%\vspace*{\stretch{7}}
+        %\vspace*{\stretch{7}}
         \vspace{20mm}
 
         \iflanguage{english}{%
-            \Large Master's Thesis (30 ECTS)
+        \Large Master's Thesis (30 ECTS)
         }{%
-            \Large Bakalaureusetöö (9 EAP)
-        }%\iflanguage
+        \Large Bakalaureusetöö (9 EAP)
+        }
+        %\iflanguage
 
     \end{center}
 
@@ -248,93 +249,101 @@
 
     \begin{flushright}
     {
-        \setlength{\extrarowheight}{5pt}
-        \begin{tabular}{r l}
-            \sffamily \iflanguage{english}{Supervisor}{Juhendaja}: & \sffamily Kristiina Rahkema, MSc \\
-            \sffamily \iflanguage{english}{Co-supervisor}{Juhendaja}: & \sffamily Dietmar Pfahl, PhD
-        \end{tabular}
+    \setlength{\extrarowheight}{5pt}
+    \begin{tabular}{r l}
+        \sffamily \iflanguage{english}{Supervisor}{Juhendaja}: & \sffamily Kristiina Rahkema, MSc \\
+        \sffamily \iflanguage{english}{Co-supervisor}{Juhendaja}: & \sffamily Dietmar Pfahl, PhD
+    \end{tabular}
     }
     \end{flushright}
 
-%\vspace*{\stretch{3}}
-%\vspace{10mm}
+    %\vspace*{\stretch{3}}
+    %\vspace{10mm}
 
     \vfill
     \centerline{Tartu 2020}
 
-%===END TITLE PAGE
+    %===END TITLE PAGE
 
-% If the thesis is printed on both sides of the page then
-% the second page must be must be empty. Comment this out
-% if you print only to one side of the page comment this out
-%\newpage
-%\thispagestyle{empty}
-%\phantom{Text to fill the page}
-% END OF EXTRA PAGE WITHOUT NUMBER
+    % If the thesis is printed on both sides of the page then
+    % the second page must be must be empty. Comment this out
+    % if you print only to one side of the page comment this out
+    %\newpage
+    %\thispagestyle{empty}
+    %\phantom{Text to fill the page}
+    % END OF EXTRA PAGE WITHOUT NUMBER
 
 
-%===COMPULSORY INFO PAGE
+    %===COMPULSORY INFO PAGE
     \newpage
 
-%=== Info in English
+    %=== Info in English
     \newcommand\EngInfo{{%
-        \selectlanguage{english}
-        \noindent\textbf{\large Building a tool for detecting code smells in Android application code}
+    \selectlanguage{english}
+    \noindent\textbf{\large Building a tool for detecting code smells in Android application code}
 
-        \vspace*{3ex}
+    \vspace*{3ex}
 
-        \noindent\textbf{Abstract:}
+    \noindent\textbf{Abstract:}
 
-        \noindent
-        In recent years, quality code behind the presentation layer has become increasingly important since a high number of applications are in maintenance mode.
-        Maintaining complex applications is hard and modifying code that is difficult to understand may introduce new bugs.
-        Poor design or implementation choices that contribute to technical debt are called code smells.
-        Static analyzers are tools used to detect code smells and other vulnerabilities inside software applications.
-        In this paper, we analyze static analysis tools and also develop our tool, which tries to overcome the problems
-        of the previous tools by providing more code smell detection rules.
-        As a result, we developed a plugin for SonarQube that analyzes applications written in Java programming language.
-        Finally, we verified our tool by performing an empirical study on a selected corpus of applications.
+    \noindent
+    In recent years, quality of the code behind the presentation layer has become increasingly important since a high number of applications are in maintenance mode.
+    Maintaining complex applications is hard and modifying code that is difficult to understand may introduce new bugs.
+    Poor design or implementation choices that contribute to technical debt are called code smells.
+    Static analyzers are tools used to detect code smells and other vulnerabilities inside software applications.
+    In this paper, we analyze static analysis tools and also develop our tool, which tries to overcome the problems
+    of the previous tools by providing more code smell detection rules.
+    As a result, we developed a plugin for SonarQube that analyzes applications written in Java programming language.
+    Finally, we verified our tool by performing an empirical study on a selected corpus of applications.
 
-        \vspace*{1ex}
+    \vspace*{1ex}
 
-        \noindent\textbf{Keywords:}\\
-        Static code analyzer, Code smells, Android, SonarQube
+    \noindent\textbf{Keywords:}\\
+    Static code analyzer, Code smells, Android, SonarQube
 
-        \vspace*{1ex}
+    \vspace*{1ex}
 
-        \noindent\textbf{CERCS:} P170 Computer science, numerical analysis, systems, control
+    \noindent\textbf{CERCS:} P170 Computer science, numerical analysis, systems, control
 
-        \vspace*{1ex}
+    \vspace*{1ex}
     }}%\newcommand\EngInfo
 
 
-%=== Info in Estonian
+    %=== Info in Estonian
     \newcommand\EstInfo{{%
-        \selectlanguage{estonian}
-        \noindent\textbf{\large Building a tool for detecting code smells in Android application code}
-        \vspace*{1ex}
+    \selectlanguage{estonian}
+    \noindent\textbf{\large Koodilõhnade tuvastamise tööriista loomine Android platvormi rakendustele}
+    \vspace*{1ex}
 
-        \noindent\textbf{Lühikokkuvõte:}
+    \noindent\textbf{Lühikokkuvõte:}
+    Viimastel aastatel on esitluskihi taga oleva koodi kvaliteet muutunud üha olulisemaks, kuna suur hulk rakendusi on hoolduse faasis.
+    Keerukate rakenduste hooldamine on raske ja raskesti mõistetava koodi muutmine võib põhjustada uusi vigu.
+    Kehv disain või implementeerimise otsused, mis aitavad kaasa tehnilisele võlgnevusele, nimetatakse koodilõhnadeks.
+    Staatilised analüsaatorid on tööriistad, mida kasutatakse koodilõhnade ja muude tarkvara haavatavuste tuvastamiseks.
+    Selles töös analüüsime staatilise analüüsi tööriistu ja arendame ka oma tööriista, mis püüab üle saada eelnevate tööriistade probleemidest ja suudab
+    tuvastada ka suuremat arvu koodilõhnasid.
+    Tulemusena töötasime välja SonarQube'i pistikprogrammi, mis analüüsib Java programmeerimiskeeles kirjutatud rakendusi.
+    Lõpuks kontrollisime oma tööriista, viies läbi empiirilise uuringu valitud rakenduste korpusel.
 
-        \noident
-        \TODO{
-            Fill Estonian abstract once we verify this abstract is OK.
-        }
+    \noident
+    \TODO{
+    Fill Estonian abstract once we verify this abstract is OK.
+    }
 
-        \vspace*{1ex}
+    \vspace*{1ex}
 
-        \noindent\textbf{Võtmesõnad:}\\
-        Staatiline koodi analüüs, koodilõhn, Android, SonarQube
+    \noindent\textbf{Võtmesõnad:}\\
+    Staatiline koodi analüüs, koodilõhn, Android, SonarQube
 
-        \vspace*{1ex}
+    \vspace*{1ex}
 
-        \noindent\textbf{CERCS:} P170 Arvutiteadus, arvutusmeetodid, süsteemid, juhtimine (automaatjuhtimisteooria)
+    \noindent\textbf{CERCS:} P170 Arvutiteadus, arvutusmeetodid, süsteemid, juhtimine (automaatjuhtimisteooria)
 
-        \vspace*{1ex}
+    \vspace*{1ex}
     }}%\newcommand\EstInfo
 
 
-%=== Determine the order of languages on Info page
+    %=== Determine the order of languages on Info page
     \EngInfo
 
     \newpage
@@ -408,7 +417,7 @@
 
     \input{conclussion.tex}
 
-% BibTeX bibliography
+    % BibTeX bibliography
     \newpage
     \bibliographystyle{plainnat}
     \bibliography{masters-thesis-template}
@@ -416,20 +425,20 @@
     \addcontentsline{toc}{section}{\refname}
 
 
-% Use Biblatex if you have problems with Estonian keywords
-%\printbibliography %biblatex
+    % Use Biblatex if you have problems with Estonian keywords
+    %\printbibliography %biblatex
 
 
 
     \newpage
-%\appendix
-%\section*{\appendixname}
+    %\appendix
+    %\section*{\appendixname}
     \iflanguage{english}%
     {\section*{Appendix}
-        \addcontentsline{toc}{section}{Appendix}
+    \addcontentsline{toc}{section}{Appendix}
     }%
     {\section*{Lisad}
-        \addcontentsline{toc}{section}{Lisad}}
+    \addcontentsline{toc}{section}{Lisad}}
 
 
     \section*{I. Implemented code smells}
@@ -467,83 +476,83 @@
 
     \newpage
 
-%=== Licence in English
+    %=== Licence in English
     \newcommand{\licencehint}[2]{\\\hspace*{#1}\textsl(#2)\par}
     \newcommand\EngLicence{{%
-        \selectlanguage{english}
-        \section*{II. Licence}
+    \selectlanguage{english}
+    \section*{II. Licence}
 
-        \addcontentsline{toc}{subsection}{II. Licence}
+    \addcontentsline{toc}{subsection}{II. Licence}
 
-        \subsection*{Non-exclusive licence to reproduce thesis and make thesis public}
+    \subsection*{Non-exclusive licence to reproduce thesis and make thesis public}
 
-        I, \textbf{Stanislav Mõškovski}, %author's name
-        \licencehint{10mm}{author's name}
+    I, \textbf{Stanislav Mõškovski}, %author's name
+    \licencehint{10mm}{author's name}
 
-        \begin{enumerate}
-            \item
-            herewith grant the University of Tartu a free permit (non-exclusive licence) to
-            \par
-            reproduce, for the purpose of preservation, including for adding to the DSpace digital archives until the expiry of the term of copyright,
-            \par
-            \textbf{Building a tool for detecting code smells in Android application code}, %
-            \licencehint{10mm}{title of thesis}
-            \par
-            supervised by Kristiina Rahkema and Dietmar Pfahl. %supervisor's name
-            \licencehint{10mm}{supervisor's name}
-            \item
-            I grant the University of Tartu a permit to make the work specified in p. 1 available to the public via the web environment of the University of Tartu, including via the DSpace digital archives, under the Creative Commons licence CC BY NC ND 3.0, which allows, by giving appropriate credit to the author, to reproduce, distribute the work and communicate it to the public, and prohibits the creation of derivative works and any commercial use of the work until the expiry of the term of copyright.
-            \item
-            I am aware of the fact that the author retains the rights specified in p. 1 and 2.
-            \item
-            I certify that granting the non-exclusive licence does not infringe other persons' intellectual property rights or rights arising from the personal data protection legislation.
-        \end{enumerate}
+    \begin{enumerate}
+        \item
+        herewith grant the University of Tartu a free permit (non-exclusive licence) to
+        \par
+        reproduce, for the purpose of preservation, including for adding to the DSpace digital archives until the expiry of the term of copyright,
+        \par
+        \textbf{Building a tool for detecting code smells in Android application code}, %
+        \licencehint{10mm}{title of thesis}
+        \par
+        supervised by Kristiina Rahkema and Dietmar Pfahl. %supervisor's name
+        \licencehint{10mm}{supervisor's name}
+        \item
+        I grant the University of Tartu a permit to make the work specified in p. 1 available to the public via the web environment of the University of Tartu, including via the DSpace digital archives, under the Creative Commons licence CC BY NC ND 3.0, which allows, by giving appropriate credit to the author, to reproduce, distribute the work and communicate it to the public, and prohibits the creation of derivative works and any commercial use of the work until the expiry of the term of copyright.
+        \item
+        I am aware of the fact that the author retains the rights specified in p. 1 and 2.
+        \item
+        I certify that granting the non-exclusive licence does not infringe other persons' intellectual property rights or rights arising from the personal data protection legislation.
+    \end{enumerate}
 
-        \noindent
-        Stanislav Mõškovski\\ %author's name
-        \textbf{\textsl{dd/mm/yyyy}}
+    \noindent
+    Stanislav Mõškovski\\ %author's name
+    \textbf{\textsl{dd/mm/yyyy}}
     }}%\newcommand\EngLicence
 
 
-%=== Licence in Estonian
+    %=== Licence in Estonian
     \newcommand\EstLicence{{%
-        \selectlanguage{estonian}
-        \section*{II. Litsents}
+    \selectlanguage{estonian}
+    \section*{II. Litsents}
 
-        \addcontentsline{toc}{subsection}{II. Litsents}
+    \addcontentsline{toc}{subsection}{II. Litsents}
 
-        \subsection*{Lihtlitsents lõputöö reprodutseerimiseks ja üldsusele kättesaadavaks tegemiseks}
+    \subsection*{Lihtlitsents lõputöö reprodutseerimiseks ja üldsusele kättesaadavaks tegemiseks}
 
-        Mina, \textbf{Alice Cooper}, %author's name
-        \licencehint{10mm}{autori nimi}
+    Mina, \textbf{Alice Cooper}, %author's name
+    \licencehint{10mm}{autori nimi}
 
-        \begin{enumerate}
-            \item
-            annan Tartu Ülikoolile tasuta loa (lihtlitsentsi) minu loodud teose
-            \par
-            \textbf{Tüübituletus neljandat järku loogikavalemitele}, %title of thesis
-            \licencehint{10mm}{lõputöö pealkiri}
-            \par
-            mille juhendaja(d) on Axel Rose ja May Flower, %supervisor's name(s)
-            \licencehint{10mm}{juhendaja nimi}
-            \par
-            reprodutseerimiseks eesmärgiga seda säilitada, sealhulgas lisada digitaalarhiivi DSpace kuni autoriõiguse kehtivuse lõppemiseni.
-            \par
-            \item
-            Annan Tartu Ülikoolile loa teha punktis 1 nimetatud teos üldsusele kättesaadavaks Tartu Ülikooli veebikeskkonna, sealhulgas digitaalarhiivi DSpace kaudu Creative Commonsi litsentsiga CC BY NC ND 3.0, mis lubab autorile viidates teost reprodutseerida, levitada ja üldsusele suunata ning keelab luua tuletatud teost ja kasutada teost ärieesmärgil, kuni autoriõiguse kehtivuse lõppemiseni.
-            \item
-            Olen teadlik, et punktides 1 ja 2 nimetatud õigused jäävad alles ka autorile.
-            \item
-            Kinnitan, et lihtlitsentsi andmisega ei riku ma teiste isikute intellektuaalomandi ega isikuandmete kaitse õigusaktidest tulenevaid õigusi.
-        \end{enumerate}
+    \begin{enumerate}
+        \item
+        annan Tartu Ülikoolile tasuta loa (lihtlitsentsi) minu loodud teose
+        \par
+        \textbf{Tüübituletus neljandat järku loogikavalemitele}, %title of thesis
+        \licencehint{10mm}{lõputöö pealkiri}
+        \par
+        mille juhendaja(d) on Axel Rose ja May Flower, %supervisor's name(s)
+        \licencehint{10mm}{juhendaja nimi}
+        \par
+        reprodutseerimiseks eesmärgiga seda säilitada, sealhulgas lisada digitaalarhiivi DSpace kuni autoriõiguse kehtivuse lõppemiseni.
+        \par
+        \item
+        Annan Tartu Ülikoolile loa teha punktis 1 nimetatud teos üldsusele kättesaadavaks Tartu Ülikooli veebikeskkonna, sealhulgas digitaalarhiivi DSpace kaudu Creative Commonsi litsentsiga CC BY NC ND 3.0, mis lubab autorile viidates teost reprodutseerida, levitada ja üldsusele suunata ning keelab luua tuletatud teost ja kasutada teost ärieesmärgil, kuni autoriõiguse kehtivuse lõppemiseni.
+        \item
+        Olen teadlik, et punktides 1 ja 2 nimetatud õigused jäävad alles ka autorile.
+        \item
+        Kinnitan, et lihtlitsentsi andmisega ei riku ma teiste isikute intellektuaalomandi ega isikuandmete kaitse õigusaktidest tulenevaid õigusi.
+    \end{enumerate}
 
-        \noindent
-        Alice Cooper\\ %author's name
-        \textbf{\textsl{pp.kk.aaaa}}
+    \noindent
+    Alice Cooper\\ %author's name
+    \textbf{\textsl{pp.kk.aaaa}}
     }}%\newcommand\EstLicence
 
 
-%===Choose the licence in active language
+    %===Choose the licence in active language
     \iflanguage{english}{\EngLicence}{\EstLicence}
 
 
